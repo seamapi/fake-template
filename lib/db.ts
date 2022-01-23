@@ -24,7 +24,6 @@ export const createDb = async ({
     users: [],
   }
 
-
   async function addDevice(user: User, device: Partial<Device>) {
     const deviceCount = ++db.state.deviceCount
     db.state.devices.push({

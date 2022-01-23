@@ -10,12 +10,12 @@ Third party APIs are simulated in testing and staging environments using "fakes"
 
 You can read more about the difference between [fakes, mocks and stubs in this StackOverflow post](https://stackoverflow.com/a/346440/559475).
 
-
 ## Implementing a Fake
 
 The fake will be automatically published to Github Packages as an NPM module, using npm-semantic-release.
 
 This template uses the following:
+
 - NextJS for API routes structure
 - esbuild-runner (for tests)
 - tsup (for building to library)
@@ -28,7 +28,6 @@ implement the following interfaces...
   - e.g. Create a user, create an api key, create a sample device
 - Save and load internal state
 
-
 ## Fake Checklist
 
 - [ ] Insomnia Export JSON File in `research/insomnia_config.json`
@@ -39,7 +38,6 @@ implement the following interfaces...
 - [ ] Published to Github Packages as `@hello-seam/fake-name`
 - [ ] Import Sample DB data into [seam-connect's sample-scenarios folder](https://github.com/hello-seam/seam-connect/tree/main/lib/sandbox/sample-scenarios)
 - [ ] Fill in package name at `lib/logger.ts` and `pages/api/health.ts`
-
 
 ## Fake API Usage
 
@@ -68,21 +66,22 @@ await acme.update() // or acme.update(Date.now())
 await acme.stopServer()
 ```
 
-
 ## Built-in Commands
 
 ### `yarn start`
+
 Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn build`
+
 The build script, `nsm build`, builds both your nextjs project and a directory
 called `.nsm` which allows you to create a server.
 
 There are two files in your root directory: `index.ts` and `server.ts`.
 `index.ts` will implement the fake functions, and `server.ts` will handle the creation of the server using `nextjs-server-modules`.
 
-### `yarn run test`
+### `yarn test`
 
 The test script runs tests using ava.
 
@@ -103,19 +102,20 @@ test("GET /health", async (t) => {
 })
 ```
 
-### `yarn run format`
+### `yarn format`
+
 This formatting scripts fixes any styling issues you have in your code.
 
-### `yarn run create-sample-db`
-This script prints out a sample db json print out that will be used to generate sandbox data for this device. You should import the json data into into the [sample-scenarios folder in @hello-seam/seam-connect](https://github.com/hello-seam/seam-connect/tree/main/lib/sandbox/sample-scenarios).
+### `yarn create-sample-db`
 
+This script prints out a sample db json print out that will be used to generate sandbox data for this device. You should import the json data into into the [sample-scenarios folder in @hello-seam/seam-connect](https://github.com/hello-seam/seam-connect/tree/main/lib/sandbox/sample-scenarios).
 
 ## Publishing your NPM module
 
 To publish, add one of the following tags at the beginning of your commit message:
 
-type             | version | commit message
------------------|---------|-----------------------------------
-patch release    |  _._.x  | "fix: <some message>"
-feature release  |  _.x.0  | "feat: <some message>"
-breaking release |  x.0.0  | "BREAKING CHANGE: <some message>"
+| type             | version | commit message                    |
+| ---------------- | ------- | --------------------------------- |
+| patch release    | _._.x   | "fix: <some message>"             |
+| feature release  | \_.x.0  | "feat: <some message>"            |
+| breaking release | x.0.0   | "BREAKING CHANGE: <some message>" |
