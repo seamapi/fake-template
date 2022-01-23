@@ -30,6 +30,9 @@ typings/
 
 # Next.js build output
 .next
+.nsm
 
 # Tsup build / generate output
 dist
+
+.DS_Store
