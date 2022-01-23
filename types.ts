@@ -14,6 +14,7 @@ export interface RequestWithDb extends NextApiRequest {
 
 export interface Device {
   deviceId: string
+  name: string
 }
 
 export interface User {

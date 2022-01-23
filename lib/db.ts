@@ -37,7 +37,7 @@ export const createDb = async ({
 
   async function addUser(user: Partial<User>) {
     db.state.users.push({
-      identityId: `user-${++db.state.userCount}`,
+      userId: `user-${++db.state.userCount}`,
       ...user,
     })
 
