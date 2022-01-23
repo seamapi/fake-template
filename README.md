@@ -2,8 +2,7 @@
 
 ## Third Party API Fakes
 
-Third party APIs are simulated in testing and staging environments using "fakes". Fakes mimic the functionality
-of the third party API and internal state management without needing any physical devices. Fakes also...
+Third party APIs are simulated in testing and staging environments using "fakes". Fakes mimic the functionality of the third party API and internal state management without needing any physical devices. Fakes also...
 
 - Enable reliable local testing
 - Enable staging environments for customers
@@ -38,11 +37,11 @@ implement the following interfaces...
 - [ ] Has README with instructions on how it works, links to relevant third party documentation or blogs. Lists features.
 - [ ] Implements minimal set of endpoints needed to poll devices and perform actions
 - [ ] Published to Github Packages as `@hello-seam/fake-name`
-- [ ] Uses `nsm` not `next` for building
+- [ ] Import Sample DB data into [seam-connect's sample-scenarios folder](https://github.com/hello-seam/seam-connect/tree/main/lib/sandbox/sample-scenarios)
 - [ ] Fill in package name at `lib/logger.ts` and `pages/api/health.ts`
 
 
-### Fake API Usage
+## Fake API Usage
 
 ```ts
 import fakeAcme from "@hello-seam/fake-acme"
@@ -72,11 +71,11 @@ await acme.stopServer()
 
 ## Built-in Commands
 
-###`yarn start`
+### `yarn start`
 Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-###`yarn build`
+### `yarn build`
 The build script, `nsm build`, builds both your nextjs project and a directory
 called `.nsm` which allows you to create a server.
 
@@ -104,10 +103,11 @@ test("GET /health", async (t) => {
 })
 ```
 
-###`yarn run format`
+### `yarn run format`
 This formatting scripts fixes any styling issues you have in your code.
 
-
+### `yarn run create-sample-db`
+This script prints out a sample db json print out that will be used to generate sandbox data for this device. You should import the json data into into the [sample-scenarios folder in @hello-seam/seam-connect](https://github.com/hello-seam/seam-connect/tree/main/lib/sandbox/sample-scenarios).
 
 
 ## Publishing your NPM module
