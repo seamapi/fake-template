@@ -29,6 +29,7 @@ implement the following interfaces...
   - e.g. Create a user, create an api key, create a sample device
 - Save and load internal state
 
+
 ## Fake Checklist
 
 - [ ] Insomnia Export JSON File in `research/insomnia_config.json`
@@ -40,7 +41,8 @@ implement the following interfaces...
 - [ ] Uses `nsm` not `next` for building
 - [ ] Fill in package name at `lib/logger.ts` and `pages/api/health.ts`
 
-### API
+
+### Fake API Usage
 
 ```ts
 import fakeAcme from "@hello-seam/fake-acme"
@@ -67,21 +69,25 @@ await acme.update() // or acme.update(Date.now())
 await acme.stopServer()
 ```
 
-### Compiling NextJS Project to an NPM Module
 
-Generally you'll want two files in your root directory: `index.ts` and `server.ts`. `index.ts` will
-implement the fake functions, and `server.ts` will handle the creation of the server using `nextjs-server-modules`.
+## Built-in Commands
 
-Make sure you've installed `nextjs-server-modules` (`nsm`) with `yarn add --dev nextjs-server-modules`. You should then
-add a `build` script to your `package.json` that runs `nsm build`. This will build both your nextjs project then a directory
+###`yarn start`
+Runs the app in development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+###`yarn build`
+The build script, `nsm build`, builds both your nextjs project and a directory
 called `.nsm` which allows you to create a server.
 
-You'll also want to make sure you've installed `get-port@5` if you're having issues with esm compatibility.
+There are two files in your root directory: `index.ts` and `server.ts`.
+`index.ts` will implement the fake functions, and `server.ts` will handle the creation of the server using `nextjs-server-modules`.
 
+### `yarn run test`
 
-### Setting Up Tests within a Fake
+The test script runs tests using ava.
 
-- You should configure ava for typescript with esbuild-runner [(see this example)](https://github.com/hello-seam/fake-august/blob/main/ava.config.js)
+- We have configured ava for typescript with esbuild-runner [(see this example)](https://github.com/hello-seam/fake-august/blob/main/ava.config.js)
 - `nsm` provides an import that can be used to easily create tests (shown below)
 
 ```ts
@@ -96,6 +102,12 @@ test("GET /health", async (t) => {
 
   t.is(res.data.status, "ok")
 })
+```
+
+###`yarn run format`
+This formatting scripts fixes any styling issues you have in your code.
+
+
 
 
 ## Publishing your NPM module
