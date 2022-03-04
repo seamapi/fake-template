@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Fake Device Template",
   "main": "dist/index.js",
-  "repository": "git@github.com:hello-seam/fake-template.git",
+  "repository": "git@github.com:seamapi/fake-template.git",
   "author": "<dawn.ho@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
@@ -14,7 +14,7 @@
     "create-sample-db": "esr scripts/create-sample-db.ts"
   },
   "dependencies": {
-    "@hello-seam/logger": "^1.2.5",
+    "@seamapi/logger": "^1.2.5",
     "axios": "^0.24.0",
     "esbuild": "^0.14.1",
     "esbuild-runner": "^2.2.1",

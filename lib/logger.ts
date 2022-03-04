@@ -1,3 +1,3 @@
-import { getLogger } from "@hello-seam/logger"
+import { getLogger } from "@seamapi/logger"
 
 export default getLogger(`fake-${"package name here"}`)

@@ -35,14 +35,14 @@ implement the following interfaces...
 - [ ] Android APK with [apk-mitm](https://github.com/shroudedcode/apk-mitm) run on it in `research/base-mitm.apk`
 - [ ] Has README with instructions on how it works, links to relevant third party documentation or blogs. Lists features.
 - [ ] Implements minimal set of endpoints needed to poll devices and perform actions
-- [ ] Published to Github Packages as `@hello-seam/fake-name`
-- [ ] Import Sample DB data into [seam-connect's sample-scenarios folder](https://github.com/hello-seam/seam-connect/tree/main/lib/sandbox/sample-scenarios)
+- [ ] Published to Github Packages as `@seamapi/fake-name`
+- [ ] Import Sample DB data into [seam-connect's sample-scenarios folder](https://github.com/seamapi/seam-connect/tree/main/lib/sandbox/sample-scenarios)
 - [ ] Fill in package name at `lib/logger.ts` and `pages/api/health.ts`
 
 ## Fake API Usage
 
 ```ts
-import fakeAcme from "@hello-seam/fake-acme"
+import fakeAcme from "@seamapi/fake-acme"
 
 const acme = await fakeAcme.create()
 
@@ -85,7 +85,7 @@ There are two files in your root directory: `index.ts` and `server.ts`.
 
 The test script runs tests using ava.
 
-- We have configured ava for typescript with esbuild-runner [(see this example)](https://github.com/hello-seam/fake-august/blob/main/ava.config.js)
+- We have configured ava for typescript with esbuild-runner [(see this example)](https://github.com/seamapi/fake-august/blob/main/ava.config.js)
 - `nsm` provides an import that can be used to easily create tests (shown below)
 
 ```ts
@@ -108,7 +108,7 @@ This formatting scripts fixes any styling issues you have in your code.
 
 ### `yarn create-sample-db`
 
-This script prints out a sample db json print out that will be used to generate sandbox data for this device. You should import the json data into into the [sample-scenarios folder in @hello-seam/seam-connect](https://github.com/hello-seam/seam-connect/tree/main/lib/sandbox/sample-scenarios).
+This script prints out a sample db json print out that will be used to generate sandbox data for this device. You should import the json data into into the [sample-scenarios folder in @seamapi/seam-connect](https://github.com/seamapi/seam-connect/tree/main/lib/sandbox/sample-scenarios).
 
 ## Publishing your NPM module
 

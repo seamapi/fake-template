@@ -55,9 +55,9 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"
   integrity sha512-82cpyJyKRoQoRi+14ibCeGPu0CwypgtBAdBhq1WfvagpCZNKqwXbKwXllYSMG91DhmG4jt9gN8eP6lGOtozuaw==
 
-"@hello-seam/logger@^1.2.5":
+"@seamapi/logger@^1.2.5":
   version "1.3.1"
-  resolved "https://npm.pkg.github.com/download/@hello-seam/logger/1.3.1/b954baa892399fd1c9105c4f610a3f1e0b591fa944cb60d0aac57de88ca70c71#a2eb498c8994ef501da1a65f49c597134d664085"
+  resolved "https://npm.pkg.github.com/download/@seamapi/logger/1.3.1/b954baa892399fd1c9105c4f610a3f1e0b591fa944cb60d0aac57de88ca70c71#a2eb498c8994ef501da1a65f49c597134d664085"
   integrity sha512-YHvGEVpw1oatlaYkjhvBSIRQ+Zjistitg/vBorj7VtXr4V2rbkcl9cpla84B00w0WZAXCdCabNXMnKIDxZwA2g==
   dependencies:
     "@logtail/node" "^0.1.10"
