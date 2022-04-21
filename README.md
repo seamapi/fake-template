@@ -61,7 +61,7 @@ const serializedDb = await acme.toJSON()
 await acme.loadJSON(serializedDb)
 
 // update() will make sure any time-related changes to the database happen
-await acme.update() // or acme.update(Date.now())
+await acme.update(Date.now()) // or acme.update(Date.now())
 
 await acme.stopServer()
 ```
