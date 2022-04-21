@@ -1,4 +1,4 @@
-export default (next) => async (req, res) => {
+export const withErrorHandling = (next) => async (req, res) => {
   try {
     return await next(req, res)
   } catch (e: any) {
@@ -8,3 +8,5 @@ export default (next) => async (req, res) => {
     })
   }
 }
+
+export default withErrorHandling
