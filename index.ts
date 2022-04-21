@@ -1,6 +1,6 @@
 import { createDb } from "lib/db"
 import { startServer } from "./server"
-export * from "./types"
+export * from "./src/lib/types"
 
 export const create = async () => {
   let database = await createDb()
@@ -14,10 +14,10 @@ export const create = async () => {
       return this.server.close()
     },
     loadJSON: (newState) => {
-      database.state = newState
+      database.setState(newState)
     },
-    toJSON: () => database.state,
-    update: () => database.update(),
+    toJSON: () => database.getState(),
+    update: () => database.getState().update(),
   }
 }
 

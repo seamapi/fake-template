@@ -1,5 +1,5 @@
 export default {
-  files: ["tests/**/*.test.ts"],
+  files: ["src/tests/**/*.test.ts"],
   extensions: ["ts"],
   require: ["esbuild-runner/register"],
 }

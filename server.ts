@@ -1,6 +1,6 @@
 import getPort from "get-port"
 import logger from "lib/logger"
-import { createDb, Database, setGlobalDb } from "lib/db"
+import { createDb, Database } from "lib/db"
 
 interface Params {
   port?: number
