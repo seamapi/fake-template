@@ -1,5 +1,5 @@
 {
-  "name": "fake-template",
+  "name": "@seamapi/fake-acme",
   "version": "1.0.0",
   "description": "Fake Device Template",
   "main": "dist/index.js",

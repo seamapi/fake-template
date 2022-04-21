@@ -36,6 +36,7 @@ implement the following interfaces...
 - [ ] Has README with instructions on how it works, links to relevant third party documentation or blogs. Lists features.
 - [ ] Implements minimal set of endpoints needed to poll devices and perform actions
 - [ ] Published to Github Packages as `@seamapi/fake-name`
+- [ ] Add fake to [Seam Connect fake config map](https://github.com/seamapi/seam-connect/blob/main/lib/sandbox/fake-config-map.ts)
 - [ ] Import Sample DB data into [seam-connect's sample-scenarios folder](https://github.com/seamapi/seam-connect/tree/main/lib/sandbox/sample-scenarios)
 - [ ] Fill in package name at `lib/logger.ts` and `pages/api/health.ts`
 
@@ -50,10 +51,8 @@ await acme.startServer({ port: 1234 })
 
 // The "database" object should exist on every API and be serializable to JSON, however the methods on the
 // database may vary depending on the provider. Make sure to document this in the fake README
-await acme.database.addUser({
-  email: "hello@example.com",
-  role: "admin",
-  teamName: "testteam",
+await acme.database.getState().addThing({
+  type: "superthing",
 })
 
 // These methods should always be available
