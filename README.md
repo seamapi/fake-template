@@ -39,6 +39,7 @@ implement the following interfaces...
 - [ ] Add fake to [Seam Connect fake config map](https://github.com/seamapi/seam-connect/blob/main/lib/sandbox/fake-config-map.ts)
 - [ ] Import Sample DB data into [seam-connect's sample-scenarios folder](https://github.com/seamapi/seam-connect/tree/main/lib/sandbox/sample-scenarios)
 - [ ] Fill in package name at `lib/logger.ts` and `pages/api/health.ts`
+- [ ] Add any environment variables e.g. `MANUFACTURER_BASE_URL` to seam-connect README and `getWorkspaceEnv` file
 
 ## Fake API Usage
 
