@@ -17,17 +17,14 @@
     "create-sample-db": "esr scripts/create-sample-db.ts"
   },
   "dependencies": {
-    "@seamapi/logger": "^1.2.5",
-    "axios": "^0.24.0",
-    "esbuild": "^0.14.1",
-    "esbuild-runner": "^2.2.1",
+    "@seamapi/logger": "^1.7.4",
     "iconv-lite": "^0.6.3",
-    "immer": "^9.0.12",
+    "immer": "^9.0.15",
     "next": "^12.0.7",
     "nextjs-middleware-wrappers": "^1.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "zustand": "^4.0.0-rc.0"
+    "zustand": "^4.1.1"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^9.0.2",
@@ -36,15 +33,15 @@
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.38",
-    "ava": "^3.15.0",
-    "esbuild": "^0.14.1",
+    "ava": "^4.3.3",
+    "esbuild": "^0.15.7",
     "esbuild-runner": "^2.2.1",
     "get-port": "5",
     "next": "^12.0.7",
-    "nextjs-ava-fixture": "^1.2.1",
-    "nextjs-server-modules": "^1.6.0",
-    "prettier": "^2.5.1",
-    "tsup": "^5.6.3",
-    "typescript": "^4.4.4"
+    "nextjs-ava-fixture": "^1.2.2",
+    "nextjs-server-modules": "^1.7.0",
+    "prettier": "^2.7.1",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.3"
   }
 }
