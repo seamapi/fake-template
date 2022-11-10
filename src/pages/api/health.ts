@@ -1,6 +1,13 @@
-export default (req, res) => {
+import { withRouteSpec } from "lib/middlewares"
+import { z } from "zod"
+
+export default withRouteSpec({
+  auth: "none",
+  methods: ["GET"],
+  middlewares: [],
+  jsonResponse: z.object({ note: z.string() }),
+} as const)(async (req, res) => {
   res.status(200).json({
-    status: "ok",
     note: "this is not part of the [insert manufacturer name] api",
   })
-}
+})

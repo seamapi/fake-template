@@ -6,5 +6,5 @@ test("GET /health", async (t) => {
 
   const res = await axios.get("/health")
 
-  t.is(res.data.status, "ok")
+  t.is(res.data.ok, true)
 })

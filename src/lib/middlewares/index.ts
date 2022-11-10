@@ -1,3 +1,3 @@
 export * from "./with-api-key"
 export * from "./with-db"
-export * from "./with-error-handling"
+export * from "./with-route-spec"
