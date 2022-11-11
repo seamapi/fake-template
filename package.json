@@ -11,7 +11,9 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "next dev",
-    "build": "rimraf dist && nsm build && tsup ./index.ts --dts --sourcemap && cp -r .next dist/.next",
+    "build": "rimraf dist && nsm build && tsup ./index.ts --dts --sourcemap && npm run build:openapi && npm run build:route-types && cp -r .next dist/.next",
+    "build:openapi": "nextlove generate-openapi --packageDir . --outputFile ./public/openapi.json --pathPrefix /api --pathGlob '/src/pages/api/**/*.ts'",
+    "build:route-types": "nextlove generate-route-types --packageDir . --outputFile ./src/lib/types/route-types.ts --pathPrefix / --pathGlob '/src/pages/api/**/*.ts'",
     "test": "ava",
     "format": "prettier -w .",
     "create-sample-db": "esr scripts/create-sample-db.ts"
@@ -22,6 +24,7 @@
     "immer": "^9.0.15",
     "next": "^12.0.7",
     "nextjs-middleware-wrappers": "^1.1.2",
+    "nextlove": "^0.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "zustand": "^4.1.1"
@@ -35,6 +38,7 @@
     "@types/react": "^17.0.38",
     "ava": "^4.3.3",
     "esbuild": "^0.15.7",
+    "esbuild-register": "^3.4.1",
     "esbuild-runner": "^2.2.1",
     "get-port": "5",
     "next": "^12.0.7",
@@ -42,6 +46,7 @@
     "nextjs-server-modules": "^1.7.0",
     "prettier": "^2.7.1",
     "tsup": "^6.2.3",
+    "type-fest": "^3.2.0",
     "typescript": "^4.8.3"
   }
 }
