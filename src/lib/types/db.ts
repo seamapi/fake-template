@@ -12,7 +12,5 @@ export interface DatabaseMethods {
   update: (t?: number) => any
 }
 
-export type Database<DatabaseState, DatabaseMethods> = StoreApi<
-  DatabaseState & DatabaseMethods
-> &
+export type Database = StoreApi<DatabaseState & DatabaseMethods> &
   DatabaseMethods

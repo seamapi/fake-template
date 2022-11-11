@@ -15,6 +15,7 @@
     "build:openapi": "nextlove generate-openapi --packageDir . --outputFile ./public/openapi.json --pathPrefix /api --pathGlob '/src/pages/api/**/*.ts'",
     "build:route-types": "nextlove generate-route-types --packageDir . --outputFile ./src/lib/types/route-types.ts --pathPrefix / --pathGlob '/src/pages/api/**/*.ts'",
     "test": "ava",
+    "typecheck": "tsc --noEmit",
     "format": "prettier -w .",
     "create-sample-db": "esr scripts/create-sample-db.ts"
   },

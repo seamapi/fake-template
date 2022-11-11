@@ -9,7 +9,7 @@ import {
 } from "lib/types"
 import { hoistMethods } from "./utils/hoist-methods"
 
-export const createDb = (): Database<DatabaseState, DatabaseMethods> =>
+export const createDb = (): Database =>
   hoistMethods(
     create(
       immer<DatabaseState & DatabaseMethods>((set, get) => ({
@@ -44,3 +44,5 @@ const globalDb = createDb()
 export const getGlobalDb = () => {
   return globalDb
 }
+
+export type { Database, DatabaseState, DatabaseMethods }
