@@ -15,7 +15,7 @@ export const hoistMethods = <T extends StoreApi<any> = StoreApi<any>>(
   const methods: any = {}
   for (const key in store.getState()) {
     if (typeof store.getState()[key] === "function") {
-      store[key] = (...args) => store[key].getState()[key](...args)
+      store[key] = (...args) => store.getState()[key](...args)
     }
   }
   return store as any
