@@ -19,18 +19,16 @@
     "format": "prettier -w .",
     "create-sample-db": "esr scripts/create-sample-db.ts"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@seamapi/logger": "^1.7.4",
     "iconv-lite": "^0.6.3",
     "immer": "^9.0.15",
-    "next": "^12.0.7",
     "nextjs-middleware-wrappers": "^1.1.2",
     "nextlove": "^0.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "zustand": "^4.1.1"
-  },
-  "devDependencies": {
+    "zustand": "^4.1.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.0",

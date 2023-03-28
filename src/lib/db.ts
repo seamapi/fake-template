@@ -1,4 +1,4 @@
-import create, { StoreApi } from "zustand/vanilla"
+import { create, StoreApi } from "zustand/vanilla"
 import { immer } from "zustand/middleware/immer"
 import {
   Database,
