@@ -1,17 +1,11 @@
-import create, { StoreApi } from "zustand/vanilla"
+import { createStore } from "zustand/vanilla"
 import { immer } from "zustand/middleware/immer"
-import {
-  Database,
-  DatabaseMethods,
-  DatabaseState,
-  Thing,
-  ThingInitializer,
-} from "lib/types"
+import { Database, DatabaseMethods, DatabaseState } from "lib/types"
 import { hoistMethods } from "./utils/hoist-methods"
 
 export const createDb = (): Database =>
   hoistMethods(
-    create(
+    createStore(
       immer<DatabaseState & DatabaseMethods>((set, get) => ({
         thingCount: 0,
         things: [],

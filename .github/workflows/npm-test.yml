@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
-      - run: yarn install
+      - run: npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GWM_GH_TOKEN }}
-      - run: yarn build
-      - run: yarn test
+      - run: npm run build
+      - run: npm test
