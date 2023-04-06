@@ -1,13 +1,13 @@
-export interface Routes {
+export type Routes = {
   "/api/health": {
     route: "/api/health"
     method: "GET"
     queryParams: {}
     jsonBody: {}
     commonParams: {}
+    formData: {}
     jsonResponse: {
       note: string
-      ok: boolean
     }
   }
   "/api/things/list": {
@@ -16,13 +16,13 @@ export interface Routes {
     queryParams: {}
     jsonBody: {}
     commonParams: {}
+    formData: {}
     jsonResponse: {
       things: {
         thing_id: string
         type: "superthing" | "lamething"
         status: "online" | "offline"
       }[]
-      ok: boolean
     }
   }
 }
