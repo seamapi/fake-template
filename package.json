@@ -1,6 +1,6 @@
 {
   "name": "@seamapi/fake-acme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fake Device Template",
   "main": "dist/index.js",
   "repository": "git@github.com:seamapi/fake-template.git",
