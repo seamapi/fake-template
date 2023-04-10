@@ -68,12 +68,12 @@ await acme.stopServer()
 
 ## Built-in Commands
 
-### `yarn start`
+### `npm run start`
 
 Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `yarn build`
+### `npm run build`
 
 The build script, `nsm build`, builds both your nextjs project and a directory
 called `.nsm` which allows you to create a server.
@@ -81,7 +81,7 @@ called `.nsm` which allows you to create a server.
 There are two files in your root directory: `index.ts` and `server.ts`.
 `index.ts` will implement the fake functions, and `server.ts` will handle the creation of the server using `nextjs-server-modules`.
 
-### `yarn test`
+### `npm run test`
 
 The test script runs tests using ava.
 
@@ -102,11 +102,11 @@ test("GET /health", async (t) => {
 })
 ```
 
-### `yarn format`
+### `npm run format`
 
 This formatting scripts fixes any styling issues you have in your code.
 
-### `yarn create-sample-db`
+### `npm run create-sample-db`
 
 This script prints out a sample db json print out that will be used to generate sandbox data for this device. You should import the json data into into the [sample-scenarios folder in @seamapi/seam-connect](https://github.com/seamapi/seam-connect/tree/main/lib/sandbox/sample-scenarios).
 
