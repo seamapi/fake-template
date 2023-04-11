@@ -10,5 +10,6 @@ export default withRouteSpec({
   res.status(200).json({
     ok: true,
     note: "this is not part of the [insert manufacturer name] api",
+    ok: true,
   })
 })
