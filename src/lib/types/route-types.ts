@@ -8,6 +8,7 @@ export type Routes = {
     formData: {}
     jsonResponse: {
       note: string
+      ok: boolean
     }
   }
   "/api/things/list": {

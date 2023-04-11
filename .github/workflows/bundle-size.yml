@@ -19,8 +19,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GWM_GH_TOKEN }}
       - run: npm run build
-      - 
-        id: get_bundle_size
+      - id: get_bundle_size
         run: |
           echo "DIST_SIZE=$(du -sh dist | cut -f1)" >> $GITHUB_OUTPUT
       - uses: marocchino/sticky-pull-request-comment@v2

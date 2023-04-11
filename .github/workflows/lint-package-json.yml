@@ -3,10 +3,10 @@ name: Lint Package JSON
 on:
   push:
     paths:
-      - 'package.json'
+      - "package.json"
   pull_request:
     paths:
-      - 'package.json'
+      - "package.json"
 
 jobs:
   lint_package_json:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18
-      
+
       - name: Check "files" key in package.json
         run: |
           PACKAGE_JSON=$(cat package.json)
