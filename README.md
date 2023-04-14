@@ -68,7 +68,7 @@ await acme.stopServer()
 
 ## Built-in Commands
 
-### `npm run start`
+### `npm start`
 
 Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -81,7 +81,7 @@ called `.nsm` which allows you to create a server.
 There are two files in your root directory: `index.ts` and `server.ts`.
 `index.ts` will implement the fake functions, and `server.ts` will handle the creation of the server using `nextjs-server-modules`.
 
-### `npm run test`
+### `npm test`
 
 The test script runs tests using ava.
 

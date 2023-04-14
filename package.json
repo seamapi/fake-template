@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "Fake Device Template",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "repository": "git@github.com:seamapi/fake-template.git",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -19,17 +22,8 @@
     "format": "prettier -w .",
     "create-sample-db": "esr scripts/create-sample-db.ts"
   },
-  "dependencies": {
-    "@seamapi/logger": "^1.7.4",
-    "@types/raw-body": "^2.3.0",
-    "iconv-lite": "^0.6.3",
-    "immer": "^9.0.15",
-    "next": "^12.3.4",
-    "nextjs-middleware-wrappers": "^1.1.2",
-    "nextlove": "^1.2.0",
-    "zustand": "^4.3.7"
-  },
   "devDependencies": {
+    "@seamapi/logger": "^1.7.4",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.0",
@@ -42,11 +36,18 @@
     "esbuild-register": "^3.4.2",
     "esbuild-runner": "^2.2.2",
     "get-port": "5",
+    "iconv-lite": "^0.6.3",
+    "immer": "^9.0.15",
     "next": "^12.3.4",
+    "nextjs-ava-fixture": "^1.2.2",
+    "nextjs-middleware-wrappers": "^1.1.2",
     "nextjs-server-modules": "^2.2.0",
-    "prettier": "^2.8.7",
+    "nextlove": "^1.2.0",
+    "raw-body": "^2.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "zustand": "^4.3.7",
+    "prettier": "^2.8.7",
     "tsup": "^6.7.0",
     "type-fest": "^3.8.0",
     "typescript": "^5.0.3"
