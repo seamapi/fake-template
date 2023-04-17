@@ -10,7 +10,13 @@ export const command: Command = 'thing add [type]'
 
 export const describe: Describe = 'Create sample database.'
 
-export const builder: Builder = {}
+export const builder: Builder = {
+  type: {
+    type: 'string',
+    default: 'superthing',
+    describe: 'Thing type',
+  },
+}
 
 export const handler: Handler<Options> = async ({ type, logger }) => {
   const db = createDatabase()
