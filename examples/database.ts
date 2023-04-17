@@ -1,25 +1,32 @@
-import type { Builder, Command, Describe, Handler } from 'landlubber'
+import { writeFile } from 'node:fs/promises'
+import { dirname } from 'node:path'
 
-import { createDatabase, type Thing } from 'index.ts'
+import type { Builder, Command, Describe, Handler } from 'landlubber'
+import { mkdirp } from 'mkdirp'
+
+import { createSampleDatabase } from 'index.ts'
 
 interface Options {
-  type: Thing['type']
+  outfile: string
 }
 
-export const command: Command = 'thing add [type]'
+export const command: Command = 'database create'
 
 export const describe: Describe = 'Create sample database.'
 
 export const builder: Builder = {
-  type: {
+  outfile: {
     type: 'string',
-    default: 'superthing',
-    describe: 'Thing type',
+    default: 'tmp/db.json',
+    description: 'Where to save the sample database',
   },
 }
 
-export const handler: Handler<Options> = async ({ type, logger }) => {
-  const db = createDatabase()
-  db.getState().addThing({ type })
-  logger.info(db.getState())
+export const handler: Handler<Options> = async ({ outfile, logger }) => {
+  const db = createSampleDatabase()
+  const state = db.getState()
+  logger.info(state, 'Database State')
+  await mkdirp(dirname(outfile))
+  await writeFile(outfile, JSON.stringify(state, null, 2))
+  logger.info({ outfile }, 'Database Written')
 }
