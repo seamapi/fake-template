@@ -1,14 +1,24 @@
-# fake-template
+# Fake Template
+
+[![GitHub Actions](https://github.com/seamapi/fake-template/actions/workflows/check.yml/badge.svg)](https://github.com/seamapi/fake-template/actions/workflows/check.yml)
+
+Fake Template.
+
+## Description
+
+TODO: Describe fake here.
 
 ## Third Party API Fakes
 
-Third party APIs are simulated in testing and staging environments using "fakes". Fakes mimic the functionality of the third party API and internal state management without needing any physical devices. Fakes also...
+Third party APIs are simulated in testing and staging environments using fakes.
+Fakes:
 
-- Enable reliable local testing
-- Enable staging environments for customers
-- Allow us to directly compare API responses and look for discrepenacies, reducing maintenance burden
+- Mimic functionality of the third party API and internal state management without needing any physical devices.
+- Enable reliable local testing.
+- Enable staging environments for customers.
+- Allow comparing API responses to look for discrepancies, reducing maintenance burden.
 
-You can read more about the difference between [fakes, mocks and stubs in this StackOverflow post](https://stackoverflow.com/a/346440/559475).
+Read more about the difference between fakes, mocks and stubs in [this StackOverflow post](https://stackoverflow.com/a/346440/559475).
 
 ## Implementing a Fake
 
@@ -16,106 +26,176 @@ The fake will be automatically published to Github Packages as an NPM module, us
 
 This template uses the following:
 
-- NextJS for API routes structure
-- esbuild-runner (for tests)
-- tsup (for building to library)
+- NextJS and nextlove for API routes.
+- Zustand for state management.
+- AVA for tests.
 
-The fakes should
-implement the following interfaces...
+The fakes should implement the following interfaces:
 
-- Start an one or more http servers on a provided port
-- Create or manipulate internal state (without using API directly) to configure test fixtures
-  - e.g. Create a user, create an api key, create a sample device
-- Save and load internal state
+- Start one or more HTTP servers on a provided port.
+- Create or manipulate internal state (without using the API directly) to configure test fixtures,
+  e.g., create a user, create an API key, create a sample device.
+- Save and load internal state.
 
 ## Fake Checklist
 
-- [ ] Insomnia Export JSON File in `research/insomnia_config.json`
-- [ ] Android APK Original File in `research/base.apk`
-- [ ] Android APK with [apk-mitm](https://github.com/shroudedcode/apk-mitm) run on it in `research/base-mitm.apk`
-- [ ] Has README with instructions on how it works, links to relevant third party documentation or blogs. Lists features.
-- [ ] Implements minimal set of endpoints needed to poll devices and perform actions
-- [ ] Published to Github Packages as `@seamapi/fake-name`
-- [ ] Add fake to [Seam Connect fake config map](https://github.com/seamapi/seam-connect/blob/main/lib/sandbox/fake-config-map.ts)
-- [ ] Import Sample DB data into [seam-connect's sample-scenarios folder](https://github.com/seamapi/seam-connect/tree/main/lib/sandbox/sample-scenarios)
 - [ ] Fill in package name at `lib/logger.ts` and `pages/api/health.ts`
-- [ ] Add any environment variables e.g. `MANUFACTURER_BASE_URL` to seam-connect README and `getWorkspaceEnv` file
+- [ ] Insomnia Export JSON File in `research/insomnia_config.json`
+- [ ] Has README with instructions: how it works, links to relevant third party documentation or blogs, feature list, etc.
+- [ ] Implements minimal set of endpoints needed to poll devices and perform actions.
+- [ ] Added to [Seam Connect fake config map](https://github.com/seamapi/seam-connect/blob/main/lib/sandbox/fake-config-map.ts).
+- [ ] Sample DB data imported into [seam-connect's sample-scenarios folder](https://github.com/seamapi/seam-connect/tree/main/lib/sandbox/sample-scenarios).
+- [ ] Any environment variables, e.g., `MANUFACTURER_BASE_URL` added to seam-connect README and `getWorkspaceEnv` file.
 
-## Fake API Usage
+## Installation
 
-```ts
-import fakeAcme from "@seamapi/fake-acme"
+Add this as a dependency to your project using [npm]
+by adding the line below to your project's `.npmrc`,
 
-const acme = await fakeAcme.create()
-
-await acme.startServer({ port: 1234 })
-
-// The "database" object should exist on every API and be serializable to JSON, however the methods on the
-// database may vary depending on the provider. Make sure to document this in the fake README
-await acme.database.getState().addThing({
-  type: "superthing",
-})
-
-// These methods should always be available
-const serializedDb = await acme.toJSON()
-await acme.loadJSON(serializedDb)
-
-// update() will make sure any time-related changes to the database happen
-await acme.update(Date.now()) // or acme.update(Date.now())
-
-await acme.stopServer()
+```
+@seamapi:registry=https://npm.pkg.github.com
 ```
 
-## Built-in Commands
+and installing the package with
 
-### `npm start`
-
-Runs the app in development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `npm run build`
-
-The build script, `nsm build`, builds both your nextjs project and a directory
-called `.nsm` which allows you to create a server.
-
-There are two files in your root directory: `index.ts` and `server.ts`.
-`index.ts` will implement the fake functions, and `server.ts` will handle the creation of the server using `nextjs-server-modules`.
-
-### `npm test`
-
-The test script runs tests using ava.
-
-- We have configured ava for typescript with esbuild-runner [(see this example)](https://github.com/seamapi/fake-august/blob/main/ava.config.js)
-- `nsm` provides an import that can be used to easily create tests (shown below)
-
-```ts
-// tests/health.test.ts
-import test from "ava"
-import getTestServer from "tests/fixtures/get-test-server"
-
-test("GET /health", async (t) => {
-  const { axios } = await getTestServer(t)
-
-  const res = await axios.get("/health")
-
-  t.is(res.data.status, "ok")
-})
+```
+$ npm install @seamapi/fake-template
 ```
 
-### `npm run format`
+[npm]: https://www.npmjs.com/
 
-This formatting scripts fixes any styling issues you have in your code.
+## Development and Testing
 
-### `npm run create-sample-db`
+### Quickstart
 
-This script prints out a sample db json print out that will be used to generate sandbox data for this device. You should import the json data into into the [sample-scenarios folder in @seamapi/seam-connect](https://github.com/seamapi/seam-connect/tree/main/lib/sandbox/sample-scenarios).
+```
+$ git clone https://github.com/seamapi/fake-template.git
+$ cd fake-template
+$ nvm install
+$ npm install
+$ npm run test:watch
+```
 
-## Publishing your NPM module
+Primary development tasks are defined under `scripts` in `package.json`
+and available via `npm run`.
+View them with
 
-To publish, add one of the following tags at the beginning of your commit message:
+```
+$ npm run
+```
 
-| type             | version | commit message                    |
-| ---------------- | ------- | --------------------------------- |
-| patch release    | _._.x   | "fix: <some message>"             |
-| feature release  | \_.x.0  | "feat: <some message>"            |
-| breaking release | x.0.0   | "BREAKING CHANGE: <some message>" |
+### Source code
+
+The [source code] is hosted on GitHub.
+Clone the project with
+
+```
+$ git clone git@github.com:seamapi/fake-template.git
+```
+
+[source code]: https://github.com/seamapi/fake-template
+
+### Requirements
+
+You will need [Node.js] with [npm] and a [Node.js debugging] client.
+
+Be sure that all commands run under the correct Node version, e.g.,
+if using [nvm], install the correct version with
+
+```
+$ nvm install
+```
+
+Set the active version for each shell session with
+
+```
+$ nvm use
+```
+
+Ensure you are authenticated with the [GitHub Packages npm registry],
+then install the development dependencies with
+
+```
+$ npm install
+```
+
+[Node.js]: https://nodejs.org/
+[Node.js debugging]: https://nodejs.org/en/docs/guides/debugging-getting-started/
+[npm]: https://www.npmjs.com/
+[nvm]: https://github.com/creationix/nvm
+[GitHub Packages npm registry]: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages
+
+### Publishing
+
+#### Automatic
+
+New versions are released automatically with [semantic-release].
+as long as commits follow the [Angular Commit Message Conventions].
+
+[Angular Commit Message Conventions]: https://semantic-release.gitbook.io/semantic-release/#commit-message-format
+[semantic-release]: https://semantic-release.gitbook.io/
+
+#### Manual
+
+Publish a new version by triggering a [version workflow_dispatch on GitHub Actions].
+The `version` input will be passed as the first argument to [npm-version].
+
+This may be done on the web or using the [GitHub CLI] with
+
+```
+$ gh workflow run version.yml --raw-field version=<version>
+```
+
+[GitHub CLI]: https://cli.github.com/
+[npm-version]: https://docs.npmjs.com/cli/version
+[version workflow_dispatch on GitHub Actions]: https://github.com/seamapi/fake-template/actions?query=workflow%3Aversion
+
+## GitHub Actions
+
+_GitHub Actions should already be configured: this section is for reference only._
+
+The following repository secrets must be set on [GitHub Actions]:
+
+- `GH_TOKEN`: A personal access token for the bot user with
+  `packages:write` and `contents:write` permission.
+- `GIT_USER_NAME`: The GitHub bot user's real name.
+- `GIT_USER_EMAIL`: The GitHub bot user's email.
+- `GPG_PRIVATE_KEY`: The GitHub bot user's [GPG private key].
+- `GPG_PASSPHRASE`: The GitHub bot user's GPG passphrase.
+
+[GitHub Actions]: https://github.com/features/actions
+[GPG private key]: https://github.com/marketplace/actions/import-gpg#prerequisites
+
+## Contributing
+
+> If using squash merge, edit and ensure the commit message follows the [Angular Commit Message Conventions] specification.
+> Otherwise, each individual commit must follow the [Angular Commit Message Conventions] specification.
+
+1. Create your feature branch (`git checkout -b my-new-feature`).
+2. Make changes.
+3. Commit your changes (`git commit -am 'Add some feature'`).
+4. Push to the branch (`git push origin my-new-feature`).
+5. Create a new draft pull request.
+6. Ensure all checks pass.
+7. Mark your pull request ready for review.
+8. Wait for the required approval from the code owners.
+9. Merge when ready.
+
+[Angular Commit Message Conventions]: https://semantic-release.gitbook.io/semantic-release/#commit-message-format
+
+## License
+
+This npm package is Copyright (c) 2021-2023 Seam Labs, Inc.
+
+## Warranty
+
+This software is provided by the copyright holders and contributors "as is" and
+any express or implied warranties, including, but not limited to, the implied
+warranties of merchantability and fitness for a particular purpose are
+disclaimed. In no event shall the copyright holder or contributors be liable for
+any direct, indirect, incidental, special, exemplary, or consequential damages
+(including, but not limited to, procurement of substitute goods or services;
+loss of use, data, or profits; or business interruption) however caused and on
+any theory of liability, whether in contract, strict liability, or tort
+(including negligence or otherwise) arising in any way out of the use of this
+software, even if advised of the possibility of such damage.

@@ -1,0 +1,62 @@
+{
+  "root": true,
+  "extends": ["standard-with-typescript", "prettier"],
+  "plugins": ["simple-import-sort", "unused-imports"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "overrides": [
+    {
+      "files": ["src/route-types.ts"],
+      "rules": {
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/consistent-type-definitions": "off",
+        "simple-import-sort/imports": "off"
+      }
+    },
+    {
+      "files": ["next-env.d.ts"],
+      "rules": {
+        "@typescript-eslint/triple-slash-reference": "off"
+      }
+    }
+  ],
+  "rules": {
+    "no-console": "warn",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "fixStyle": "inline-type-imports"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "import/extensions": ["error", "ignorePackages"],
+    "import/no-duplicates": ["error", { "prefer-inline": true }],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^\\u0000"],
+          ["^node:"],
+          ["^@?\\w"],
+          ["index.ts"],
+          ["^fixtures/", "^lib/", "^nsm", "^pages"],
+          ["^"],
+          ["^\\."]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error"
+  }
+}

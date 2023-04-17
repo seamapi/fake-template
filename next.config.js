@@ -1,13 +1,17 @@
-// This file changes the routing to allow top-level prefixes
-
-module.exports = {
+/** @type {import('next').NextConfig} */
+export default {
+  // UPSTREAM: https://github.com/vercel/next.js/discussions/32237#discussioncomment-4793595
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   async rewrites() {
     return {
       beforeFiles: [
-        // Nextjs by default requires a /api prefix, let's remove that
         {
-          source: "/:path*",
-          destination: "/api/:path*",
+          // Only allow API Routes and serve those from the root.
+          // https://nextjs.org/docs/api-routes/introduction
+          source: '/:path*',
+          destination: '/api/:path*',
         },
       ],
     }
