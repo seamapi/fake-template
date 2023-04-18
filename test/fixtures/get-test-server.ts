@@ -9,6 +9,8 @@ import { type NextApiHandler, type NextApiResponse } from 'nsm/types/nextjs.ts'
 
 import { type DatabaseFixture, getTestDatabase } from './get-test-database.ts'
 
+export { type SimpleAxiosError } from 'nsm/get-server-fixture.ts'
+
 const { default: getServerFixture } = nsm
 
 type ServerFixture = DatabaseFixture &
@@ -33,7 +35,7 @@ export const getTestServer = async (
   })
 
   // Here's how you might put an authorization header on every request
-  // fixture.axios.defaults.headers.common['Authorization'] = `Bearer ${seed.apiKey}
+  // fixture.axios.defaults.headers.common['authorization'] = `Bearer ${seed.apiKey}
 
   return {
     ...fixture,
