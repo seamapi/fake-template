@@ -4,9 +4,9 @@
   "servers": [{ "url": "https://example.com" }],
   "tags": [],
   "paths": {
-    "/api/health": {
+    "/health": {
       "get": {
-        "summary": "/api/health",
+        "summary": "/health",
         "responses": {
           "200": {
             "description": "OK",

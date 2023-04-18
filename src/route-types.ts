@@ -1,6 +1,6 @@
 export type Routes = {
-  '/api/health': {
-    route: '/api/health'
+  '/health': {
+    route: '/health'
     method: 'GET'
     queryParams: {}
     jsonBody: {}
