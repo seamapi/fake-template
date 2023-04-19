@@ -10,7 +10,7 @@ interface Options {
   outfile: string
 }
 
-export const command: Command = 'database create'
+export const command: Command = 'database sample'
 
 export const describe: Describe = 'Create sample database.'
 

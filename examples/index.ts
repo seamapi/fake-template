@@ -2,8 +2,8 @@
 
 import landlubber from 'landlubber'
 
-import * as database from './database.ts'
+import * as databaseSample from './database-sample.ts'
 
-const commands = [database]
+const commands = [databaseSample]
 
 await landlubber(commands).parse()
