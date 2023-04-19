@@ -14,7 +14,9 @@ export { type SimpleAxiosError } from 'nsm/get-server-fixture.ts'
 const { default: getServerFixture } = nsm
 
 type ServerFixture = DatabaseFixture &
-  Awaited<ReturnType<typeof getServerFixture>> & { axios: TypedAxios<Routes> }
+  Omit<Awaited<ReturnType<typeof getServerFixture>>, 'axios'> & {
+    axios: TypedAxios<Routes>
+  }
 
 interface ApiRequest extends NextApiRequest {
   db?: Database | undefined
