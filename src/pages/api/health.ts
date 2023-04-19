@@ -2,8 +2,6 @@ import { z } from 'zod'
 
 import { withRouteSpec } from 'lib/middleware/index.ts'
 
-export type HealthGetRes = z.infer<typeof jsonResponse>
-
 const jsonResponse = z.object({
   note: z.string(),
   ok: z.boolean(),
