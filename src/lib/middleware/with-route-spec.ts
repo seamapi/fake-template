@@ -6,6 +6,7 @@ import withDb from './with-db.ts'
 export const withRouteSpec = createWithRouteSpec({
   apiName: 'Fake Template',
   productionServerUrl: 'https://example.com',
+  shouldValidateGetRequestBody: false,
   globalMiddlewares: [withDb],
   authMiddlewareMap: {
     api_key: withApiKey,
