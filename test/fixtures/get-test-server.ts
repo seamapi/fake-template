@@ -1,15 +1,15 @@
-import { type ExecutionContext } from 'ava'
-import { type NextApiRequest } from 'next'
-import { type TypedAxios } from 'typed-axios-instance'
+import type { ExecutionContext } from 'ava'
+import type { NextApiRequest } from 'next'
+import type { TypedAxios } from 'typed-axios-instance'
 
-import { type Database, type Routes } from 'index.ts'
+import type { Database, Routes } from 'index.ts'
 
 import nsm from 'nsm/get-server-fixture.ts'
-import { type NextApiHandler, type NextApiResponse } from 'nsm/types/nextjs.ts'
+import type { NextApiHandler, NextApiResponse } from 'nsm/types/nextjs.ts'
 
 import { type DatabaseFixture, getTestDatabase } from './get-test-database.ts'
 
-export { type SimpleAxiosError } from 'nsm/get-server-fixture.ts'
+export type { SimpleAxiosError } from 'nsm/get-server-fixture.ts'
 
 const { default: getServerFixture } = nsm
 
