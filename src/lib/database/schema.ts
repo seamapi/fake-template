@@ -1,4 +1,4 @@
-import type { HoistedMethodStoreApi } from 'zustand-hoist'
+import type { HoistedStoreApi } from 'zustand-hoist'
 
 import type { Thing, ThingInitializer } from 'lib/thing.ts'
 
@@ -15,4 +15,4 @@ export interface DatabaseMethods {
 
 export type State = DatabaseState & DatabaseMethods
 
-export type Database = HoistedMethodStoreApi<State>
+export type Database = HoistedStoreApi<State>

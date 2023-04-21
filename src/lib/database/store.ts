@@ -1,11 +1,11 @@
 import { immer } from 'zustand/middleware/immer'
 import { createStore, type StoreApi } from 'zustand/vanilla'
-import { hoistMethods } from 'zustand-hoist'
+import { hoist } from 'zustand-hoist'
 
 import type { Database, State } from './schema.ts'
 
 export const createDatabase = (): Database => {
-  return hoistMethods<StoreApi<State>>(createStore(initializer))
+  return hoist<StoreApi<State>>(createStore(initializer))
 }
 
 const initializer = immer<State>((set, get) => ({
