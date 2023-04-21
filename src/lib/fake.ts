@@ -13,15 +13,22 @@ export const create = async (): Promise<Fake> => {
 
 class Fake {
   public server: Server | null
-  public database: Database
+
+  public database: Omit<
+    Database,
+    'getState' | 'setState' | 'destroy' | 'subscribe'
+  >
+
+  #database: Database
 
   constructor(database: Database) {
     this.server = null
+    this.#database = database
     this.database = database
   }
 
   async startServer(): Promise<Server> {
-    this.server = await startServer({ database: this.database })
+    this.server = await startServer({ database: this.#database })
     return this.server
   }
 
@@ -30,15 +37,15 @@ class Fake {
   }
 
   loadJSON(state: DatabaseState): void {
-    this.database.setState(state)
+    this.#database.setState(state)
   }
 
   toJSON(): DatabaseState {
-    return this.database.getState()
+    return this.#database.getState()
   }
 
   update(): void {
-    this.database.getState().update()
+    this.#database.getState().update()
   }
 }
 
