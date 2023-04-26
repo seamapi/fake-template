@@ -1,6 +1,6 @@
-import type { ExecutionContext } from 'ava'
+import type { ExecutionContext } from "ava"
 
-import { createDatabase, type Database, type Thing } from 'index.ts'
+import { createDatabase, type Database, type Thing } from "index.ts"
 
 export interface DatabaseFixture {
   db: Database
@@ -18,12 +18,12 @@ export const getTestDatabase = async (
   const db = createDatabase()
 
   const thing = db.addThing({
-    type: 'superthing',
+    type: "superthing",
   })
 
   const seed = {
     thing,
-    apiKey: '1234',
+    apiKey: "1234",
   }
 
   return { db, seed }

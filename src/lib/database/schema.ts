@@ -1,6 +1,6 @@
-import type { HoistedStoreApi } from 'zustand-hoist'
+import type { HoistedStoreApi } from "zustand-hoist"
 
-import type { Thing, ThingInitializer } from 'lib/models.ts'
+import type { Thing, ThingInitializer } from "lib/models.ts"
 
 export interface DatabaseState {
   thingCount: number

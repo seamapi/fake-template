@@ -2,9 +2,9 @@ import {
   createDatabase,
   type Database,
   type DatabaseState,
-} from 'lib/database/index.ts'
+} from "lib/database/index.ts"
 
-import { type Server, startServer } from 'lib/server.ts'
+import { type Server, startServer } from "lib/server.ts"
 
 export const create = async (): Promise<Fake> => {
   const database = createDatabase()
@@ -16,7 +16,7 @@ class Fake {
 
   public database: Omit<
     Database,
-    'getState' | 'setState' | 'destroy' | 'subscribe'
+    "getState" | "setState" | "destroy" | "subscribe"
   >
 
   #database: Database

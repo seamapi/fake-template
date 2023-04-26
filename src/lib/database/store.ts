@@ -1,8 +1,8 @@
-import { immer } from 'zustand/middleware/immer'
-import { createStore, type StoreApi } from 'zustand/vanilla'
-import { hoist } from 'zustand-hoist'
+import { immer } from "zustand/middleware/immer"
+import { createStore, type StoreApi } from "zustand/vanilla"
+import { hoist } from "zustand-hoist"
 
-import type { Database, State } from './schema.ts'
+import type { Database, State } from "./schema.ts"
 
 export const createDatabase = (): Database => {
   return hoist<StoreApi<State>>(createStore(initializer))
@@ -17,13 +17,13 @@ const initializer = immer<State>((set, get) => ({
       state.thingCount++
       state.things.push({
         ...thing,
-        status: 'online',
+        status: "online",
         thing_id: `thing_${state.thingCount}`,
       })
     })
     const newThing = get().things[get().things.length - 1]
     if (newThing == null) {
-      throw new Error('Failed to find new thing in state')
+      throw new Error("Failed to find new thing in state")
     }
     return newThing
   },
@@ -34,7 +34,7 @@ const initializer = immer<State>((set, get) => ({
       if (thing == null) {
         throw new Error(`Thing "${thingId}" not found`)
       }
-      thing.status = 'offline'
+      thing.status = "offline"
     })
   },
   update() {},
