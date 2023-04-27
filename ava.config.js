@@ -8,6 +8,7 @@ export default async () => {
     > Did you npm run prebuild first?
     `)
   }
+
   return {
     ignoredByWatcher: ["tmp/**/*"],
     files: ["**/*.test.ts", "!package/**/*"],

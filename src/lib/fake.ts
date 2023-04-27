@@ -12,7 +12,7 @@ export const create = async (): Promise<Fake> => {
 }
 
 class Fake {
-  public server: Server | null
+  public server: Server | undefined
 
   public database: Omit<
     Database,

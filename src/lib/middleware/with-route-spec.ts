@@ -1,7 +1,7 @@
 import { createWithRouteSpec } from "nextlove"
 
-import withApiKey from "./with-api-key.ts"
-import withDb from "./with-db.ts"
+import withApiKey from "./with-api-key"
+import withDb from "./with-db"
 
 export const withRouteSpec = createWithRouteSpec({
   apiName: "Fake Template",

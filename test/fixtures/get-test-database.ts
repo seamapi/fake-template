@@ -2,12 +2,12 @@ import type { ExecutionContext } from "ava"
 
 import { createDatabase, type Database, type Thing } from "index.ts"
 
-export interface DatabaseFixture {
+export type DatabaseFixture = {
   db: Database
   seed: Seed
 }
 
-interface Seed {
+type Seed = {
   thing: Thing
   apiKey: string
 }

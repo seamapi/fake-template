@@ -2,7 +2,7 @@
 
 import landlubber from "landlubber"
 
-import * as databaseSample from "./database-sample.ts"
+import * as databaseSample from "./database-sample"
 
 const commands = [databaseSample]
 

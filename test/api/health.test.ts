@@ -15,9 +15,9 @@ test("GET /health", async (t: ExecutionContext) => {
 // Example of testing API error.
 test("GET /", async (t: ExecutionContext) => {
   const { axios } = await getTestServer(t)
-  const err = await t.throwsAsync<SimpleAxiosError>(
+  const error = await t.throwsAsync<SimpleAxiosError>(
     // @ts-expect-error Testing a 404 so the route does not exist in route-types.
-    async () => await axios.get("/")
+    async () => axios.get("/")
   )
-  t.is(err?.status, 404)
+  t.is(error?.status, 404)
 })
