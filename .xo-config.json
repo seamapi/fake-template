@@ -1,0 +1,41 @@
+{
+  "prettier": true,
+  "plugins": ["simple-import-sort", "unused-imports"],
+  "rules": {
+    "no-console": "warn",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "fixStyle": "inline-type-imports"
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "import/extensions": ["error", "ignorePackages"],
+    "import/no-duplicates": ["error", { "prefer-inline": true }],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^\\u0000"],
+          ["^node:"],
+          ["^@?\\w"],
+          ["index.ts"],
+          ["^fixtures/", "^lib/", "^nsm", "^pages"],
+          ["^"],
+          ["^\\."]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error"
+  }
+}

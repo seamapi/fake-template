@@ -8,7 +8,7 @@
   },
   "extensions": [
     "ms-vsliveshare.vsliveshare",
-    "dbaeumer.vscode-eslint",
+    "samverschueren.linter-xo",
     "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode"
   ],
