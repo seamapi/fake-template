@@ -36,8 +36,9 @@ export const getTestServer = async (
     ],
   })
 
-  // Here's how you might put an authorization header on every request
-  // fixture.axios.defaults.headers.common['authorization'] = `Bearer ${seed.apiKey}
+  fixture.axios.defaults.headers.common[
+    "authorization"
+  ] = `Bearer ${seed.apiKey}`
 
   return {
     ...fixture,

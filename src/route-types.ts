@@ -11,6 +11,33 @@ export type Routes = {
       ok: boolean
     }
   }
+  "/things": {
+    route: "/things"
+    method: "GET" | "POST"
+    queryParams: {}
+    jsonBody: {
+      type: "superthing" | "lamething"
+      status: "online" | "offline"
+    }
+    commonParams: {}
+    formData: {}
+    jsonResponse: {
+      thing?:
+        | {
+            thing_id: string
+            type: "superthing" | "lamething"
+            status: "online" | "offline"
+          }
+        | undefined
+      things?:
+        | {
+            thing_id: string
+            type: "superthing" | "lamething"
+            status: "online" | "offline"
+          }[]
+        | undefined
+    }
+  }
 }
 
 export type RouteResponse<Path extends keyof Routes> =

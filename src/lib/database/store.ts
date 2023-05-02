@@ -37,5 +37,6 @@ const initializer = immer<State>((set, get) => ({
       thing.status = "offline"
     })
   },
+
   update() {},
 }))

@@ -8,7 +8,7 @@ export interface DatabaseState {
 }
 
 export interface DatabaseMethods {
-  addThing: (door: ThingInitializer) => Thing
+  addThing: (thing: ThingInitializer) => Thing
   simulatePowerFailure: (thing_id: string) => void
   update: (t?: number) => void
 }
