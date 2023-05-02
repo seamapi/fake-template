@@ -1,1 +1,182 @@
-{"openapi":"3.0.0","info":{"title":"Fake Template (replace me)","version":"1.0.0"},"servers":[{"url":"http://example.com"}],"tags":[],"paths":{"/api/health":{"get":{"summary":"/api/health","responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"note":{"type":"string"},"ok":{"type":"boolean"}},"required":["note","ok"]}}}},"400":{"description":"Bad Request"},"401":{"description":"Unauthorized"}},"tags":[]}},"/api/things/list":{"post":{"summary":"/api/things/list","responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"things":{"type":"array","items":{"type":"object","properties":{"thing_id":{"type":"string"},"type":{"type":"string","enum":["superthing","lamething"]},"status":{"type":"string","enum":["online","offline"]}},"required":["thing_id","type","status"]}},"ok":{"type":"boolean"}},"required":["things","ok"]}}}},"400":{"description":"Bad Request"},"401":{"description":"Unauthorized"}},"tags":[]},"get":{"summary":"/api/things/list","responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"things":{"type":"array","items":{"type":"object","properties":{"thing_id":{"type":"string"},"type":{"type":"string","enum":["superthing","lamething"]},"status":{"type":"string","enum":["online","offline"]}},"required":["thing_id","type","status"]}},"ok":{"type":"boolean"}},"required":["things","ok"]}}}},"400":{"description":"Bad Request"},"401":{"description":"Unauthorized"}},"tags":[]}}},"components":{"securitySchemes":{}}}
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Fake Template", "version": "1.0.0" },
+  "servers": [{ "url": "https://example.com" }],
+  "tags": [],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "/health",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "note": { "type": "string" },
+                    "ok": { "type": "boolean" }
+                  },
+                  "required": ["note", "ok"]
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        },
+        "tags": []
+      }
+    },
+    "/things": {
+      "post": {
+        "summary": "/things",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "thing": {
+                      "type": "object",
+                      "properties": {
+                        "thingId": { "type": "string" },
+                        "type": {
+                          "type": "string",
+                          "enum": ["superthing", "lamething"]
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": ["online", "offline"]
+                        }
+                      },
+                      "required": ["thingId", "type", "status"]
+                    },
+                    "things": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "thingId": { "type": "string" },
+                          "type": {
+                            "type": "string",
+                            "enum": ["superthing", "lamething"]
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": ["online", "offline"]
+                          }
+                        },
+                        "required": ["thingId", "type", "status"]
+                      }
+                    },
+                    "ok": { "type": "boolean" }
+                  },
+                  "required": ["ok"]
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        },
+        "security": [{ "api_key": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["superthing", "lamething"]
+                  },
+                  "status": { "type": "string", "enum": ["online", "offline"] }
+                },
+                "required": ["type", "status"]
+              }
+            }
+          }
+        },
+        "tags": []
+      },
+      "get": {
+        "summary": "/things",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "thing": {
+                      "type": "object",
+                      "properties": {
+                        "thingId": { "type": "string" },
+                        "type": {
+                          "type": "string",
+                          "enum": ["superthing", "lamething"]
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": ["online", "offline"]
+                        }
+                      },
+                      "required": ["thingId", "type", "status"]
+                    },
+                    "things": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "thingId": { "type": "string" },
+                          "type": {
+                            "type": "string",
+                            "enum": ["superthing", "lamething"]
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": ["online", "offline"]
+                          }
+                        },
+                        "required": ["thingId", "type", "status"]
+                      }
+                    },
+                    "ok": { "type": "boolean" }
+                  },
+                  "required": ["ok"]
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        },
+        "security": [{ "api_key": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["superthing", "lamething"]
+                  },
+                  "status": { "type": "string", "enum": ["online", "offline"] }
+                },
+                "required": ["type", "status"]
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    }
+  },
+  "components": { "securitySchemes": { "api_key": { "type": "apiKey" } } }
+}

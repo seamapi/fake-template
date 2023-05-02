@@ -1,14 +1,20 @@
-import { withRouteSpec } from "lib/middlewares"
 import { z } from "zod"
+
+import { withRouteSpec } from "lib/middleware/index.ts"
+
+const jsonResponse = z.object({
+  note: z.string(),
+  ok: z.boolean(),
+})
 
 export default withRouteSpec({
   auth: "none",
   methods: ["GET"],
   middlewares: [],
-  jsonResponse: z.object({ note: z.string(), ok: z.boolean() }),
-} as const)(async (req, res) => {
+  jsonResponse,
+} as const)(async (_req, res) => {
   res.status(200).json({
-    note: "this is not part of the [insert manufacturer name] api",
+    note: "This is not part of the real API.",
     ok: true,
   })
 })

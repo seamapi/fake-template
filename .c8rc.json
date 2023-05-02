@@ -1,0 +1,12 @@
+{
+  "exclude": [
+    "**/index.ts",
+    "package/**/*.ts",
+    "examples/**/*.ts",
+    ".nsm/**/*.ts",
+    "**/*.test.ts",
+    "ava.config.js",
+    "next.config.js"
+  ],
+  "reporter": ["html", "lcov", "text"]
+}

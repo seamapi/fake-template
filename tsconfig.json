@@ -1,21 +1,45 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/next/tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": false,
+    "strict": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": "./src"
+    "moduleResolution": "nodenext",
+    "allowJs": false,
+    "target": "es2021",
+    "declaration": true,
+    "sourceMap": true,
+    "newLine": "lf",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "index.ts": ["./src/index.ts"],
+      "fixtures/*": ["./test/fixtures/*"],
+      "lib/*": ["./src/lib/*"],
+      "nsm/*": ["./.nsm/*"],
+      "pages/*": ["./src/pages/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "files": ["src/index.ts"],
+  "include": [
+    "src/**/*",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "test/**/*",
+    "examples/**/*",
+    "tsup.config.ts"
+  ]
 }
