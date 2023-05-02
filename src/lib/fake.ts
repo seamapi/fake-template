@@ -36,7 +36,7 @@ class Fake {
     this.server?.close()
   }
 
-  get serverUrl() {
+  get serverUrl(): string | null | undefined {
     return this.server?.serverUrl
   }
 
