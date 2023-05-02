@@ -1,1 +1,3 @@
-export default () => <main>Welcome</main>
+import type { ReactNode } from "react"
+
+export default (): ReactNode => <main>Welcome</main>
