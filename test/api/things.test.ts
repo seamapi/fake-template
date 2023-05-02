@@ -1,6 +1,9 @@
 import test, { type ExecutionContext } from "ava"
 
-import { getTestServer } from "fixtures/get-test-server.ts"
+import {
+  getTestServer,
+  type SimpleAxiosError,
+} from "fixtures/get-test-server.ts"
 
 test("GET /things", async (t: ExecutionContext) => {
   const { axios, seed } = await getTestServer(t)
@@ -8,6 +11,14 @@ test("GET /things", async (t: ExecutionContext) => {
   t.is(status, 200)
   t.is(data?.things?.length, 1)
   t.is(data?.things?.[0]?.thing_id, seed.thing.thing_id)
+})
+
+test("GET /things (401)", async (t: ExecutionContext) => {
+  const { axios } = await getTestServer(t)
+  const err = await t.throwsAsync<SimpleAxiosError>(
+    async () => await axios.get("/things", { headers: { authorization: null } })
+  )
+  t.is(err?.status, 401)
 })
 
 test("POST /things", async (t: ExecutionContext) => {
