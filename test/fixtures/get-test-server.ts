@@ -1,4 +1,5 @@
 import type { ExecutionContext } from "ava"
+import type { Axios } from "axios"
 import type { NextApiRequest } from "next"
 import type { TypedAxios } from "typed-axios-instance"
 
@@ -16,6 +17,7 @@ const { default: getServerFixture } = nsm
 type ServerFixture = DatabaseFixture &
   Omit<Awaited<ReturnType<typeof getServerFixture>>, "axios"> & {
     axios: TypedAxios<Routes>
+    get: Axios["get"]
   }
 
 interface ApiRequest extends NextApiRequest {
@@ -42,6 +44,7 @@ export const getTestServer = async (
 
   return {
     ...fixture,
+    get: fixture.axios.get.bind(fixture.axios),
     db,
     seed,
   }
