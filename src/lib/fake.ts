@@ -36,6 +36,10 @@ class Fake {
     this.server?.close()
   }
 
+  get serverUrl() {
+    return this.server?.serverUrl
+  }
+
   loadJSON(state: DatabaseState): void {
     this.#database.setState(state)
   }
