@@ -18,8 +18,8 @@ export default {
           destination: "/:path*",
         },
         {
-          source: '/api',
-          destination: '/',
+          source: "/api",
+          destination: "/",
         },
       ],
     }
