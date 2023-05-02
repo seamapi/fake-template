@@ -4,7 +4,7 @@ import { dirname } from "node:path"
 import type { Builder, Command, Describe, Handler } from "landlubber"
 import { mkdirp } from "mkdirp"
 
-import { create, createSampleDatabase } from "index.ts"
+import { createFake, createSampleDatabase } from "index.ts"
 
 interface Options {
   outfile: string
@@ -23,8 +23,7 @@ export const builder: Builder = {
 }
 
 export const handler: Handler<Options> = async ({ outfile, logger }) => {
-  const fake = await create()
-  const db = createSampleDatabase()
+  const fake = await createFake() const db = createSampleDatabase()
   fake.loadJSON(db.getState())
   const state = fake.toJSON()
   logger.info(state, "Database State")

@@ -52,5 +52,3 @@ class Fake {
     this.#database.getState().update()
   }
 }
-
-export default create
