@@ -23,7 +23,8 @@ export const builder: Builder = {
 }
 
 export const handler: Handler<Options> = async ({ outfile, logger }) => {
-  const fake = await createFake() const db = createSampleDatabase()
+  const fake = await createFake()
+  const db = createSampleDatabase()
   fake.loadJSON(db.getState())
   const state = fake.toJSON()
   logger.info(state, "Database State")
