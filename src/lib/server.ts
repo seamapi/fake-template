@@ -10,14 +10,14 @@ import logger from "lib/logger.ts"
 
 const { runServer } = nsm
 
-interface ServerOptions {
+type ServerOptions = {
   port: number
   server: HttpServer
 }
 
-interface ApiRequest extends NextApiRequest {
+type ApiRequest = {
   db?: Database | undefined
-}
+} & NextApiRequest
 
 export async function startServer(
   options: { port?: number | undefined; database?: Database } = {}
@@ -30,9 +30,9 @@ export async function startServer(
   const server = await runServer({
     port,
     middlewares: [
-      (next) => (req: ApiRequest, res) => {
-        req.db = database
-        return next(req, res)
+      (next) => (request: ApiRequest, res) => {
+        request.db = database
+        return next(request, res)
       },
     ],
   })

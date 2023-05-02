@@ -2,7 +2,7 @@ import { immer } from "zustand/middleware/immer"
 import { createStore, type StoreApi } from "zustand/vanilla"
 import { hoist } from "zustand-hoist"
 
-import type { Database, State } from "./schema.ts"
+import type { Database, State } from "./schema"
 
 export const createDatabase = (): Database => {
   return hoist<StoreApi<State>>(createStore(initializer))
@@ -28,6 +28,7 @@ const initializer = immer<State>((set, get) => ({
     if (newThing == null) {
       throw new Error("Failed to find new thing in state")
     }
+
     return newThing
   },
 
@@ -37,6 +38,7 @@ const initializer = immer<State>((set, get) => ({
       if (thing == null) {
         throw new Error(`Thing "${thingId}" not found`)
       }
+
       thing.status = "offline"
     })
   },

@@ -12,7 +12,7 @@ export const createFake = async (): Promise<Fake> => {
 }
 
 class Fake {
-  public server: Server | null
+  public server: Server | undefined
 
   public database: Omit<
     Database,
@@ -36,7 +36,7 @@ class Fake {
     this.server?.close()
   }
 
-  get serverUrl(): string | null | undefined {
+  get serverUrl(): string | undefined {
     return this.server?.serverUrl
   }
 

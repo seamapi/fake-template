@@ -6,7 +6,7 @@ import { mkdirp } from "mkdirp"
 
 import { createFake, createSampleDatabase } from "index.ts"
 
-interface Options {
+type Options = {
   outfile: string
 }
 

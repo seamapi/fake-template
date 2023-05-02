@@ -15,10 +15,10 @@ test("GET /things", async (t: ExecutionContext) => {
 
 test("GET /things (401)", async (t: ExecutionContext) => {
   const { axios } = await getTestServer(t)
-  const err = await t.throwsAsync<SimpleAxiosError>(
-    async () => await axios.get("/things", { headers: { authorization: null } })
+  const error = await t.throwsAsync<SimpleAxiosError>(async () =>
+    axios.get("/things", { headers: { authorization: null } })
   )
-  t.is(err?.status, 401)
+  t.is(error?.status, 401)
 })
 
 test("POST /things", async (t: ExecutionContext) => {

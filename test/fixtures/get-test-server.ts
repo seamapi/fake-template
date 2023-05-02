@@ -8,7 +8,7 @@ import type { Database, Routes } from "index.ts"
 import nsm from "nsm/get-server-fixture.ts"
 import type { NextApiHandler, NextApiResponse } from "nsm/types/nextjs.ts"
 
-import { type DatabaseFixture, getTestDatabase } from "./get-test-database.ts"
+import { type DatabaseFixture, getTestDatabase } from "./get-test-database"
 
 export type { SimpleAxiosError } from "nsm/get-server-fixture.ts"
 
@@ -20,9 +20,9 @@ type ServerFixture = DatabaseFixture &
     get: Axios["get"]
   }
 
-interface ApiRequest extends NextApiRequest {
+type ApiRequest = {
   db?: Database | undefined
-}
+} & NextApiRequest
 
 export const getTestServer = async (
   t: ExecutionContext
@@ -31,9 +31,9 @@ export const getTestServer = async (
 
   const fixture = await getServerFixture(t, {
     middlewares: [
-      (next: NextApiHandler) => (req: ApiRequest, res: NextApiResponse) => {
-        req.db = db
-        return next(req, res)
+      (next: NextApiHandler) => (request: ApiRequest, res: NextApiResponse) => {
+        request.db = db
+        return next(request, res)
       },
     ],
   })
