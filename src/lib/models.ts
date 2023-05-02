@@ -1,10 +1,10 @@
-import type { Simplify } from "type-fest"
 import { z } from "zod"
 
-export const thingZod = z.object({
+export const thing = z.object({
   thing_id: z.string(),
   type: z.enum(["superthing", "lamething"]),
   status: z.enum(["online", "offline"]),
 })
-export type Thing = Simplify<z.infer<typeof thingZod>>
-export type ThingInitializer = Partial<Thing> & Pick<Thing, "type">
+export const thingInitializer = thing.omit({ thing_id: true })
+export type Thing = z.infer<typeof thing>
+export type ThingInitializer = z.infer<typeof thingInitializer>

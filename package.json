@@ -89,7 +89,6 @@
     "prettier": "^2.3.0",
     "tsup": "^6.7.0",
     "tsx": "^3.12.1",
-    "type-fest": "^3.8.0",
     "typed-axios-instance": "^1.0.12",
     "typescript": "^5.0.2",
     "zod": "^3.21.4",
