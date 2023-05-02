@@ -3,6 +3,6 @@ import { createDatabase } from "./store.ts"
 
 export const createSampleDatabase = (): Database => {
   const db = createDatabase()
-  db.addThing({ type: "superthing" })
+  db.addThing({ type: "superthing", status: "online" })
   return db
 }

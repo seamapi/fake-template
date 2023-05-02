@@ -19,6 +19,7 @@ export const getTestDatabase = async (
 
   const thing = db.addThing({
     type: "superthing",
+    status: "online",
   })
 
   const seed = {
