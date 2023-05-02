@@ -2,11 +2,39 @@
 
 [![GitHub Actions](https://github.com/seamapi/fake-template/actions/workflows/check.yml/badge.svg)](https://github.com/seamapi/fake-template/actions/workflows/check.yml)
 
-Fake Template.
+Package skeleton for a fake.
 
 ## Description
 
 TODO: Describe fake here.
+
+## Bootstrapping a new fake
+
+1. [Trigger a makenew workflow from this repository][makenew workflow]. 🚀
+   - Provide a value for each required input.
+   - There are no defaults.
+   - Example values are shown in parentheses.
+2. When the workflow completes, clone your new repo and start coding!
+
+[makenew workflow]: https://github.com/seamapi/fake-template/actions/workflows/makenew.yml
+
+### Updating from this skeleton
+
+If you want to pull in future updates from this skeleton,
+you can fetch and merge in changes from this repository.
+
+Add this as a new remote with
+
+```
+$ git remote add makenew git@github.com:seamapi/fake-template.git
+```
+
+You can then fetch and merge changes with
+
+```
+$ git fetch --no-tags makenew
+$ git merge makenew/main
+```
 
 ## Third Party API Fakes
 

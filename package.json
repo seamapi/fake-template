@@ -1,7 +1,7 @@
 {
   "name": "@seamapi/fake-template",
   "version": "0.0.1",
-  "description": "Fake Template",
+  "description": "Package skeleton for a fake.",
   "type": "module",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
