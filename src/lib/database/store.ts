@@ -9,19 +9,22 @@ export const createDatabase = (): Database => {
 }
 
 const initializer = immer<State>((set, get) => ({
-  thingCount: 0,
+  _id: 0,
   things: [],
 
   addThing(thing) {
     set((state) => {
-      state.thingCount++
+      state._id++
+    })
+    const thingId = `thing_${get()._id}`
+
+    set((state) => {
       state.things.push({
         ...thing,
-        status: "online",
-        thing_id: `thing_${state.thingCount}`,
+        thingId,
       })
     })
-    const newThing = get().things[get().things.length - 1]
+    const newThing = get().things.find((v) => v.thingId === thingId)
     if (newThing == null) {
       throw new Error("Failed to find new thing in state")
     }
@@ -30,7 +33,7 @@ const initializer = immer<State>((set, get) => ({
 
   simulatePowerFailure(thingId) {
     set((state) => {
-      const thing = state.things.find((t) => t.thing_id === thingId)
+      const thing = state.things.find((t) => t.thingId === thingId)
       if (thing == null) {
         throw new Error(`Thing "${thingId}" not found`)
       }

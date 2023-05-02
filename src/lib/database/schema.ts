@@ -3,13 +3,13 @@ import type { HoistedStoreApi } from "zustand-hoist"
 import type { Thing, ThingInitializer } from "lib/models.ts"
 
 export interface DatabaseState {
-  thingCount: number
+  _id: number
   things: Thing[]
 }
 
 export interface DatabaseMethods {
   addThing: (thing: ThingInitializer) => Thing
-  simulatePowerFailure: (thing_id: string) => void
+  simulatePowerFailure: (thingId: string) => void
   update: (t?: number) => void
 }
 

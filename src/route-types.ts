@@ -24,14 +24,14 @@ export type Routes = {
     jsonResponse: {
       thing?:
         | {
-            thing_id: string
+            thingId: string
             type: "superthing" | "lamething"
             status: "online" | "offline"
           }
         | undefined
       things?:
         | {
-            thing_id: string
+            thingId: string
             type: "superthing" | "lamething"
             status: "online" | "offline"
           }[]

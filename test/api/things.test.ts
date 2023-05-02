@@ -10,7 +10,7 @@ test("GET /things", async (t: ExecutionContext) => {
   const { status, data } = await axios.get("/things")
   t.is(status, 200)
   t.is(data?.things?.length, 1)
-  t.is(data?.things?.[0]?.thing_id, seed.thing.thing_id)
+  t.is(data?.things?.[0]?.thingId, seed.thing.thingId)
 })
 
 test("GET /things (401)", async (t: ExecutionContext) => {
@@ -28,5 +28,5 @@ test("POST /things", async (t: ExecutionContext) => {
     status: "online",
   })
   t.is(status, 201)
-  t.not(data?.thing?.thing_id, seed.thing.thing_id)
+  t.not(data?.thing?.thingId, seed.thing.thingId)
 })

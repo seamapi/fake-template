@@ -43,7 +43,7 @@
                     "thing": {
                       "type": "object",
                       "properties": {
-                        "thing_id": { "type": "string" },
+                        "thingId": { "type": "string" },
                         "type": {
                           "type": "string",
                           "enum": ["superthing", "lamething"]
@@ -53,14 +53,14 @@
                           "enum": ["online", "offline"]
                         }
                       },
-                      "required": ["thing_id", "type", "status"]
+                      "required": ["thingId", "type", "status"]
                     },
                     "things": {
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "thing_id": { "type": "string" },
+                          "thingId": { "type": "string" },
                           "type": {
                             "type": "string",
                             "enum": ["superthing", "lamething"]
@@ -70,7 +70,7 @@
                             "enum": ["online", "offline"]
                           }
                         },
-                        "required": ["thing_id", "type", "status"]
+                        "required": ["thingId", "type", "status"]
                       }
                     },
                     "ok": { "type": "boolean" }
@@ -116,7 +116,7 @@
                     "thing": {
                       "type": "object",
                       "properties": {
-                        "thing_id": { "type": "string" },
+                        "thingId": { "type": "string" },
                         "type": {
                           "type": "string",
                           "enum": ["superthing", "lamething"]
@@ -126,14 +126,14 @@
                           "enum": ["online", "offline"]
                         }
                       },
-                      "required": ["thing_id", "type", "status"]
+                      "required": ["thingId", "type", "status"]
                     },
                     "things": {
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "thing_id": { "type": "string" },
+                          "thingId": { "type": "string" },
                           "type": {
                             "type": "string",
                             "enum": ["superthing", "lamething"]
@@ -143,7 +143,7 @@
                             "enum": ["online", "offline"]
                           }
                         },
-                        "required": ["thing_id", "type", "status"]
+                        "required": ["thingId", "type", "status"]
                       }
                     },
                     "ok": { "type": "boolean" }
