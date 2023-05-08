@@ -11,7 +11,7 @@ export const createFake = async (): Promise<Fake> => {
   return new Fake(database)
 }
 
-class Fake {
+export class Fake {
   public server: Server | null
 
   public database: Omit<
