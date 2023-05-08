@@ -40,15 +40,15 @@ class Fake {
     return this.server?.serverUrl
   }
 
-  loadJSON(state: DatabaseState): void {
+  async loadJSON(state: DatabaseState): Promise<void> {
     this.#database.setState(state)
   }
 
-  toJSON(): DatabaseState {
+  async toJSON(): Promise<DatabaseState> {
     return this.#database.getState()
   }
 
-  update(): void {
+  async update(): Promise<void> {
     this.#database.getState().update()
   }
 }
