@@ -27,7 +27,7 @@ class Fake {
     this.database = database
   }
 
-  async startServer(port?: number): Promise<Server> {
+  async startServer({ port }: { port?: number } = {}): Promise<Server> {
     this.server = await startServer({ port, database: this.#database })
     return this.server
   }
