@@ -32,7 +32,7 @@ class Fake {
     return this.server
   }
 
-  stopServer(): void {
+  async stopServer(): Promise<void> {
     this.server?.close()
   }
 
