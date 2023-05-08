@@ -11,7 +11,7 @@ export const createFake = async (): Promise<Fake> => {
   return new Fake(database)
 }
 
-class Fake {
+export class Fake {
   public server: Server | null
 
   public database: Omit<
@@ -27,12 +27,12 @@ class Fake {
     this.database = database
   }
 
-  async startServer(port?: number): Promise<Server> {
+  async startServer({ port }: { port?: number } = {}): Promise<Server> {
     this.server = await startServer({ port, database: this.#database })
     return this.server
   }
 
-  stopServer(): void {
+  async stopServer(): Promise<void> {
     this.server?.close()
   }
 
@@ -40,15 +40,15 @@ class Fake {
     return this.server?.serverUrl
   }
 
-  loadJSON(state: DatabaseState): void {
+  async loadJSON(state: DatabaseState): Promise<void> {
     this.#database.setState(state)
   }
 
-  toJSON(): DatabaseState {
+  async toJSON(): Promise<DatabaseState> {
     return this.#database.getState()
   }
 
-  update(): void {
+  async update(): Promise<void> {
     this.#database.getState().update()
   }
 }
