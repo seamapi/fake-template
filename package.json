@@ -64,6 +64,10 @@
     "node": ">=16.13.0",
     "npm": ">= 8.1.0"
   },
+  "optionalDependencies": {
+    "zustand": "^4.3.7",
+    "zustand-hoist": "^1.0.0"
+  },
   "devDependencies": {
     "@seamapi/logger": "^1.8.0",
     "@tsconfig/next": "^1.0.5",
