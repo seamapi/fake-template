@@ -26,7 +26,8 @@
           "400": { "description": "Bad Request" },
           "401": { "description": "Unauthorized" }
         },
-        "tags": []
+        "tags": [],
+        "operationId": "healthGet"
       }
     },
     "/things": {
@@ -101,80 +102,22 @@
             }
           }
         },
-        "tags": []
-      },
-      "get": {
-        "summary": "/things",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "thing": {
-                      "type": "object",
-                      "properties": {
-                        "thingId": { "type": "string" },
-                        "type": {
-                          "type": "string",
-                          "enum": ["superthing", "lamething"]
-                        },
-                        "status": {
-                          "type": "string",
-                          "enum": ["online", "offline"]
-                        }
-                      },
-                      "required": ["thingId", "type", "status"]
-                    },
-                    "things": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "thingId": { "type": "string" },
-                          "type": {
-                            "type": "string",
-                            "enum": ["superthing", "lamething"]
-                          },
-                          "status": {
-                            "type": "string",
-                            "enum": ["online", "offline"]
-                          }
-                        },
-                        "required": ["thingId", "type", "status"]
-                      }
-                    },
-                    "ok": { "type": "boolean" }
-                  },
-                  "required": ["ok"]
-                }
-              }
-            }
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": { "type": "string", "enum": ["superthing", "lamething"] },
+            "required": true
           },
-          "400": { "description": "Bad Request" },
-          "401": { "description": "Unauthorized" }
-        },
-        "security": [{ "api_key": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "enum": ["superthing", "lamething"]
-                  },
-                  "status": { "type": "string", "enum": ["online", "offline"] }
-                },
-                "required": ["type", "status"]
-              }
-            }
+          {
+            "name": "status",
+            "in": "query",
+            "schema": { "type": "string", "enum": ["online", "offline"] },
+            "required": true
           }
-        },
-        "tags": []
+        ],
+        "tags": [],
+        "operationId": "thingsPost"
       }
     }
   },
