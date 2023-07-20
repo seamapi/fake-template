@@ -4,12 +4,12 @@
   "description": "Package skeleton for a fake.",
   "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "exports": {
     "import": "./dist/index.js",
     "require": "./dist/index.cjs"
   },
-  "module": "dist/index.js",
   "sideEffects": false,
   "keywords": [
     "node"
@@ -90,7 +90,7 @@
     "mkdirp": "^3.0.0",
     "next": "^12.3.4",
     "nextjs-server-modules": "^4.1.1",
-    "nextlove": "^2.0.0",
+    "nextlove": "2.0.0",
     "prettier": "^2.3.0",
     "tsup": "^7.1.0",
     "tsx": "^3.12.1",
