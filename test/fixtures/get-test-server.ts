@@ -14,7 +14,7 @@ export type { SimpleAxiosError } from "nsm/get-server-fixture.ts"
 
 const { default: getServerFixture } = nsm
 
-type ServerFixture = DatabaseFixture &
+type ServerFixture<TSeed = true> = DatabaseFixture<TSeed> &
   Omit<Awaited<ReturnType<typeof getServerFixture>>, "axios"> & {
     axios: TypedAxios<Routes>
     get: Axios["get"]
@@ -24,10 +24,13 @@ interface ApiRequest extends NextApiRequest {
   db?: Database | undefined
 }
 
-export const getTestServer = async (
-  t: ExecutionContext
-): Promise<ServerFixture> => {
-  const { db, seed } = await getTestDatabase(t)
+export const getTestServer = async <TSeed extends boolean>(
+  t: ExecutionContext,
+  { seed: willSeed }: { seed?: TSeed } = {}
+): Promise<ServerFixture<TSeed>> => {
+  const { db, seed } = await getTestDatabase(t, {
+    seed: willSeed ?? true,
+  })
 
   const fixture = await getServerFixture(t, {
     middlewares: [
@@ -40,12 +43,12 @@ export const getTestServer = async (
 
   fixture.axios.defaults.headers.common[
     "authorization"
-  ] = `Bearer ${seed.apiKey}`
+  ] = `Bearer ${seed.api_key}`
 
   return {
     ...fixture,
     get: fixture.axios.get.bind(fixture.axios),
     db,
-    seed,
+    seed: seed as any,
   }
 }

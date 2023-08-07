@@ -1,31 +1,20 @@
 import type { ExecutionContext } from "ava"
 
-import { createDatabase, type Database, type Thing } from "index.ts"
+import { createDatabase, type Database } from "index.ts"
+import { type Seed, seedDatabase } from "lib/database/index.ts"
 
-export interface DatabaseFixture {
+export interface DatabaseFixture<TSeed = true> {
   db: Database
-  seed: Seed
-}
-
-interface Seed {
-  thing: Thing
-  apiKey: string
+  seed: TSeed extends true ? Seed : never
 }
 
 export const getTestDatabase = async (
-  _t: ExecutionContext
+  _t: ExecutionContext,
+  { seed = true }: { seed?: boolean } = {}
 ): Promise<DatabaseFixture> => {
   const db = createDatabase()
-
-  const thing = db.addThing({
-    type: "superthing",
-    status: "online",
-  })
-
-  const seed = {
-    thing,
-    apiKey: "1234",
+  if (seed) {
+    return { db, seed: seedDatabase(db) }
   }
-
-  return { db, seed }
+  return { db, seed: {} as any }
 }
