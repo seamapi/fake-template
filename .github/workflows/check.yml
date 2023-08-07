@@ -166,8 +166,6 @@ jobs:
         uses: ./.github/actions/setup
         with:
           node_auth_token: ${{ secrets.GH_TOKEN }}
-      - name: Analyze dependencies
-        run: npm run dependencies
       - name: Check for dependencies
         run: |
           if [[ "$(jq -j .dependencies < package.json)" != "null" ]]; then
