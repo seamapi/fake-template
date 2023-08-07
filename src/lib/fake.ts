@@ -2,6 +2,8 @@ import {
   createDatabase,
   type Database,
   type DatabaseState,
+  type Seed,
+  seedDatabase,
   type ZustandDatabase,
 } from "lib/database/index.ts"
 
@@ -36,6 +38,10 @@ export class Fake {
 
   get serverUrl(): string | null | undefined {
     return this.server?.serverUrl
+  }
+
+  async seed(): Promise<Seed> {
+    return seedDatabase(this.#database)
   }
 
   async loadJSON(state: DatabaseState): Promise<void> {
