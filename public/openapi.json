@@ -6,6 +6,7 @@
   "paths": {
     "/health": {
       "get": {
+        "x-fern-ignore": true,
         "summary": "/health",
         "responses": {
           "200": {
@@ -32,6 +33,7 @@
     },
     "/things": {
       "post": {
+        "x-fern-ignore": true,
         "summary": "/things",
         "responses": {
           "200": {
@@ -102,24 +104,13 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "type",
-            "in": "query",
-            "schema": { "type": "string", "enum": ["superthing", "lamething"] },
-            "required": true
-          },
-          {
-            "name": "status",
-            "in": "query",
-            "schema": { "type": "string", "enum": ["online", "offline"] },
-            "required": true
-          }
-        ],
         "tags": [],
         "operationId": "thingsPost"
       }
     }
   },
-  "components": { "securitySchemes": { "api_key": { "type": "apiKey" } } }
+  "components": {
+    "securitySchemes": { "api_key": { "type": "apiKey" } },
+    "schemas": {}
+  }
 }
