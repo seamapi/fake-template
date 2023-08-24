@@ -27,7 +27,7 @@
           ["^\\u0000"],
           ["^node:"],
           ["^@?\\w"],
-          ["index.ts"],
+          ["@seamapi/fake-template"],
           ["^fixtures/", "^lib/", "^nsm", "^pages"],
           ["^"],
           ["^\\."]
