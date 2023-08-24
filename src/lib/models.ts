@@ -7,4 +7,4 @@ export const thing = z.object({
 })
 export const thingInitializer = thing.omit({ thingId: true })
 export type Thing = z.infer<typeof thing>
-export type ThingInitializer = z.infer<typeof thingInitializer>
+export type ThingInitializer = z.input<typeof thingInitializer>

@@ -2,6 +2,8 @@ import { immer } from "zustand/middleware/immer"
 import { createStore, type StoreApi } from "zustand/vanilla"
 import { hoist } from "zustand-hoist"
 
+import * as m from "lib/models.ts"
+
 import type { Database, ZustandDatabase } from "./schema.ts"
 
 export const createDatabase = (): ZustandDatabase => {
@@ -20,7 +22,7 @@ const initializer = immer<Database>((set, get) => ({
 
     set((state) => {
       state.things.push({
-        ...thing,
+        ...m.thingInitializer.parse(thing),
         thingId,
       })
     })
