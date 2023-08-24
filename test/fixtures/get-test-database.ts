@@ -1,6 +1,6 @@
 import type { ExecutionContext } from "ava"
 
-import { createDatabase, type Database,  type Seed, seedDatabase  } from "index.ts"
+import { createDatabase, type Database,  type Seed, seedDatabase  } from "@seamapi/fake-template"
 
 export interface DatabaseFixture<TSeed = true> {
   db: Database

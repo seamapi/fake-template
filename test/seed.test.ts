@@ -1,5 +1,6 @@
 import test from "ava"
-import { seedDatabase } from "index.ts"
+
+import { seedDatabase } from "@seamapi/fake-template"
 
 import { getTestServer } from "fixtures/get-test-server.ts"
 

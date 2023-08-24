@@ -4,7 +4,7 @@ import { dirname } from "node:path"
 import type { Builder, Command, Describe, Handler } from "landlubber"
 import { mkdirp } from "mkdirp"
 
-import { createFake } from "index.ts"
+import { createFake } from "@seamapi/fake-template"
 
 interface Options {
   outfile: string
