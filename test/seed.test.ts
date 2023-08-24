@@ -1,6 +1,5 @@
 import test from "ava"
-
-import { seedDatabase } from "lib/database/index.ts"
+import { seedDatabase } from "index.ts"
 
 import { getTestServer } from "fixtures/get-test-server.ts"
 

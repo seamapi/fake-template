@@ -1,7 +1,6 @@
 import type { ExecutionContext } from "ava"
 
-import { createDatabase, type Database } from "index.ts"
-import { type Seed, seedDatabase } from "lib/database/index.ts"
+import { createDatabase, type Database,  type Seed, seedDatabase  } from "index.ts"
 
 export interface DatabaseFixture<TSeed = true> {
   db: Database
