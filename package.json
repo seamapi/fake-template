@@ -94,7 +94,7 @@
     "prettier": "^2.3.0",
     "tsup": "^7.1.0",
     "tsx": "^3.12.1",
-    "typed-axios-instance": "^1.0.12",
+    "typed-axios-instance": "^2.0.0",
     "typescript": "^5.0.2",
     "zod": "^3.21.4",
     "zustand": "^4.3.7",
