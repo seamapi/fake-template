@@ -14,7 +14,7 @@ export interface DatabaseFixture<TSeed = true> {
 
 export const getTestDatabase = async (
   _t: ExecutionContext,
-  { seed = true }: { seed?: boolean } = {}
+  { seed = true }: { seed?: boolean } = {},
 ): Promise<DatabaseFixture> => {
   const db = createDatabase()
   if (seed) {

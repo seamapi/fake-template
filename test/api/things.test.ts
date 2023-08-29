@@ -16,7 +16,8 @@ test("GET /things", async (t: ExecutionContext) => {
 test("GET /things (401)", async (t: ExecutionContext) => {
   const { axios } = await getTestServer(t)
   const err = await t.throwsAsync<SimpleAxiosError>(
-    async () => await axios.get("/things", { headers: { authorization: null } })
+    async () =>
+      await axios.get("/things", { headers: { authorization: null } }),
   )
   t.is(err?.status, 401)
 })

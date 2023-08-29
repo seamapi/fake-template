@@ -26,7 +26,7 @@ interface ApiRequest extends NextApiRequest {
 
 export const getTestServer = async <TSeed extends boolean>(
   t: ExecutionContext,
-  { seed: willSeed }: { seed?: TSeed } = {}
+  { seed: willSeed }: { seed?: TSeed } = {},
 ): Promise<ServerFixture<TSeed>> => {
   const { db, seed } = await getTestDatabase(t, {
     seed: willSeed ?? true,
