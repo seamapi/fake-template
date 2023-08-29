@@ -19,7 +19,7 @@ interface ApiRequest extends NextApiRequest {
 }
 
 export async function startServer(
-  options: { port?: number | undefined; database?: Database } = {}
+  options: { port?: number | undefined; database?: Database } = {},
 ): Promise<Server> {
   const database = options.database ?? createDatabase()
   const port = options.port ?? (await getPort())
