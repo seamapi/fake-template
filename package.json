@@ -93,7 +93,7 @@
     "nextlove": "^2.6.0",
     "prettier": "^3.0.3",
     "tsup": "^7.1.0",
-    "tsx": "^3.12.1",
+    "tsx": "^4.6.2",
     "typed-axios-instance": "^2.0.0",
     "typescript": "~5.1.0",
     "zod": "^3.21.4",
