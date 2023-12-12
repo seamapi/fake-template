@@ -41,12 +41,11 @@ export const getTestServer = async <TSeed extends boolean>(
     ],
   })
 
-  fixture.axios.defaults.headers.common[
-    "authorization"
-  ] = `Bearer ${seed.api_key}`
+  fixture.axios.defaults.headers.common['authorization'] = `Bearer ${seed.api_key}`
 
   return {
     ...fixture,
+    // @ts-expect-error Current version of axios has upstream type issue.
     get: fixture.axios.get.bind(fixture.axios),
     db,
     seed: seed as any,
