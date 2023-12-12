@@ -41,7 +41,8 @@ export const getTestServer = async <TSeed extends boolean>(
     ],
   })
 
-  fixture.axios.defaults.headers.common['authorization'] = `Bearer ${seed.api_key}`
+  fixture.axios.defaults.headers.common["authorization"] =
+    `Bearer ${seed.api_key}`
 
   return {
     ...fixture,
