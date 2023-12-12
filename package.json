@@ -60,8 +60,8 @@
     "report": "c8 report"
   },
   "engines": {
-    "node": ">=16.13.0",
-    "npm": ">= 8.1.0"
+    "node": ">=18.12.0",
+    "npm": ">= 9.0.0"
   },
   "optionalDependencies": {
     "zod": "^3.21.4",
@@ -71,7 +71,7 @@
   "devDependencies": {
     "@seamapi/logger": "^3.2.0",
     "@tsconfig/next": "^2.0.0",
-    "@types/node": "^18.11.18",
+    "@types/node": "^20.8.10",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "ava": "^5.0.1",
