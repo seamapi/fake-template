@@ -100,9 +100,12 @@ jobs:
         with:
           write-mode: overwrite
           path: index.js
-          # todo: test bundle output somehow (make-request.ts)
           contents: |
-            import '@seamapi/fake-template'
+            import {createFake} from '@seamapi/fake-template'
+            const fake = await createFake()
+
+            const response = await fake.makeRequest(new Request("https://example.com/health"))
+            console.log(response)
       - name: Install
         run: npm install --ignore-scripts --save ${{ steps.packages.outputs.paths }}
         env:
