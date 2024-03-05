@@ -2,6 +2,8 @@ import {
   createDatabase,
   type Database,
   type DatabaseState,
+  type Seed,
+  seedDatabase,
   type ZustandDatabase,
 } from "lib/database/index.ts"
 
@@ -26,6 +28,10 @@ export class Fake {
     this.#database = database
     this.database = database
     this.makeRequestWithDatabase = createMakeRequest(database)
+  }
+
+  async seed(): Promise<Seed> {
+    return seedDatabase(this.#database)
   }
 
   async makeRequest(request: Request): Promise<Response> {
