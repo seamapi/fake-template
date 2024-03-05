@@ -1,16 +1,18 @@
-import { createWithRouteSpec } from "nextlove"
+import { createWithEdgeSpec } from "edgespec"
 
-import withApiKey from "./with-api-key.ts"
-import withDb from "./with-db.ts"
+import { withApiKey } from "./with-api-key.ts"
+import { withDb } from "./with-db.ts"
 
-export const withRouteSpec = createWithRouteSpec({
-  apiName: "Fake Template",
-  productionServerUrl: "https://example.com",
+export const withRouteSpec = createWithEdgeSpec({
+  openapi: {
+    apiName: "Fake Template",
+    productionServerUrl: "https://example.com",
+  },
   shouldValidateGetRequestBody: false,
-  globalMiddlewares: [withDb],
-  authMiddlewareMap: {
+  beforeAuthMiddleware: [withDb],
+  authMiddleware: {
     api_key: withApiKey,
   },
-} as const)
+})
 
 export default withRouteSpec

@@ -15,13 +15,15 @@ export default withRouteSpec({
   methods: ["GET", "POST"],
   jsonBody,
   jsonResponse,
-} as const)(async ({ method, body, db }, res) => {
-  if (method === "GET") {
-    res.status(200).json({ things: db.things })
+})(async (req, ctx) => {
+  if (req.method === "GET") {
+    return ctx.json({ things: ctx.db.things })
   }
 
-  if (method === "POST") {
-    const thing = db.addThing(body)
-    res.status(201).json({ thing })
+  if (req.method === "POST") {
+    const thing = ctx.db.addThing(req.jsonBody)
+    return ctx.json({ thing }).status(201)
   }
+
+  return ctx.json({}).status(405)
 })

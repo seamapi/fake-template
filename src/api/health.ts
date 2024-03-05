@@ -12,8 +12,8 @@ export default withRouteSpec({
   methods: ["GET"],
   middlewares: [],
   jsonResponse,
-} as const)(async (_req, res) => {
-  res.status(200).json({
+})(async (_req, ctx) => {
+  return ctx.json({
     note: "This is not part of the real API.",
     ok: true,
   })

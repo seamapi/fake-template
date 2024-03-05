@@ -11,14 +11,12 @@
 *.js.map
 !src/**/*.d.ts
 !ava.config.js
+# todo: remove
 !next.config.js
 !next-env.d.ts
 
 # ESLint
 src/route-types.ts
-
-# NextJS Server Modules
-.nsm
 
 # Build directories
 package
@@ -124,10 +122,6 @@ web_modules/
 .cache
 .parcel-cache
 
-# Next.js build output
-.next
-out
-
 # Nuxt.js build / generate output
 .nuxt
 dist
@@ -205,7 +199,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -239,3 +234,6 @@ Temporary Items
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# EdgeSpec
+.edgespec
