@@ -13,7 +13,7 @@ const jsonResponse = z.object({
 export default withRouteSpec({
   auth: "api_key",
   methods: ["GET", "POST"],
-  jsonBody,
+  jsonBody: jsonBody.optional(),
   jsonResponse,
 })(async (req, ctx) => {
   if (req.method === "GET") {
@@ -21,7 +21,7 @@ export default withRouteSpec({
   }
 
   if (req.method === "POST") {
-    const thing = ctx.db.addThing(req.jsonBody)
+    const thing = ctx.db.addThing(req.jsonBody!)
     return ctx.json({ thing }).status(201)
   }
 

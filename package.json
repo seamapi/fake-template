@@ -69,10 +69,12 @@
     "zustand-hoist": "^1.0.0"
   },
   "devDependencies": {
+    "@ava/get-port": "^2.0.0",
     "@seamapi/logger": "^3.2.0",
     "@tsconfig/next": "^2.0.0",
     "@types/node": "^20.8.10",
     "ava": "^5.0.1",
+    "axios": "^1.6.7",
     "c8": "^8.0.0",
     "cpy-cli": "^5.0.0",
     "del-cli": "^5.0.0",

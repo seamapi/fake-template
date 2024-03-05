@@ -17,7 +17,7 @@ test("GET /things (401)", async (t) => {
     async () =>
       await axios.get("/things", { headers: { authorization: null } }),
   )
-  t.is(err?.status, 401)
+  t.is(err?.response?.status, 401)
 })
 
 test("POST /things", async (t) => {
