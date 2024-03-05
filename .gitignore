@@ -11,9 +11,6 @@
 *.js.map
 !src/**/*.d.ts
 !ava.config.js
-# todo: remove
-!next.config.js
-!next-env.d.ts
 
 # ESLint
 src/route-types.ts
