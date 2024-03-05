@@ -4,7 +4,7 @@ import type { Middleware } from "edgespec/middleware"
 import { createDatabase, type Database } from "./database/index.js"
 
 export const createMakeRequest = async (database?: Database) => {
-  const bundle = await loadBundle("../../bundled-routes.js")
+  const bundle = await loadBundle("./bundled-routes.js")
 
   const databaseInjectionMiddleware: Middleware<
     unknown,

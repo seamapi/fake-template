@@ -100,6 +100,7 @@ jobs:
         with:
           write-mode: overwrite
           path: index.js
+          # todo: test bundle output somehow (make-request.ts)
           contents: |
             import '@seamapi/fake-template'
       - name: Install

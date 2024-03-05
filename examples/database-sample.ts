@@ -4,7 +4,7 @@ import { dirname } from "node:path"
 import type { Builder, Command, Describe, Handler } from "landlubber"
 import { mkdirp } from "mkdirp"
 
-import { createFake } from "@seamapi/fake-template"
+import { createFake, seedDatabase } from "@seamapi/fake-template"
 
 interface Options {
   outfile: string
@@ -24,7 +24,7 @@ export const builder: Builder = {
 
 export const handler: Handler<Options> = async ({ outfile, logger }) => {
   const fake = await createFake()
-  await fake.seed()
+  seedDatabase(fake.database)
   const state = await fake.toJSON()
   logger.info(state, "Database State")
   await mkdirp(dirname(outfile))
