@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@tsconfig/next/tsconfig.json",
   "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "isolatedModules": true,
+    "skipLibCheck": true,
     "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
@@ -40,5 +42,6 @@
     "test/**/*",
     "examples/**/*",
     "tsup.config.ts"
-  ]
+  ],
+  "exclude": ["dist"]
 }
