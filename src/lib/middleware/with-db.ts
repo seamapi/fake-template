@@ -3,7 +3,7 @@ import type { Middleware } from "edgespec"
 import { type Database, getSingletonDatabase } from "lib/database/index.ts"
 
 export const withDb: Middleware<
-  {},
+  unknown,
   {
     db: Database
   }

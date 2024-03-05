@@ -54,7 +54,7 @@ The fake will be automatically published to Github Packages as an NPM module, us
 
 This template uses the following:
 
-- NextJS and nextlove for API routes.
+- [EdgeSpec](https://github.com/seamapi/edgespec) for API routes.
 - Zustand for state management.
 - AVA for tests.
 

@@ -29,15 +29,13 @@
       "@seamapi/fake-template": ["./src/index.ts"],
       "fixtures/*": ["./test/fixtures/*"],
       "lib/*": ["./src/lib/*"],
-      "nsm/*": ["./.nsm/*"],
       "pages/*": ["./src/pages/*"]
     }
   },
   "files": ["src/index.ts"],
   "include": [
     "src/**/*",
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
+    "edgespec.config.ts",
     "test/**/*",
     "examples/**/*",
     "tsup.config.ts"

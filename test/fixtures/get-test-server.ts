@@ -16,7 +16,11 @@ export const getTestServer = async <TSeed extends boolean>(
     seed: willSeed ?? true,
   })
 
-  const withDb: Middleware<{}, { db: Database }> = async (req, ctx, next) => {
+  const withDb: Middleware<unknown, { db: Database }> = async (
+    req,
+    ctx,
+    next,
+  ) => {
     ctx.db = db
     return await next(req, ctx)
   }

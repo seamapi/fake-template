@@ -29,7 +29,9 @@ export class Fake {
   }
 
   async makeRequest(request: Request): Promise<Response> {
-    return await this.makeRequestWithDatabase(request)
+    return await (
+      await this.makeRequestWithDatabase
+    )(request)
   }
 
   async loadJSON(state: DatabaseState): Promise<void> {

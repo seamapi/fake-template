@@ -7,7 +7,7 @@ export const createMakeRequest = async (database?: Database) => {
   const bundle = await loadBundle("../../bundled-routes.js")
 
   const databaseInjectionMiddleware: Middleware<
-    {},
+    unknown,
     {
       db: Database
     }

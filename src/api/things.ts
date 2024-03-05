@@ -21,6 +21,8 @@ export default withRouteSpec({
   }
 
   if (req.method === "POST") {
+    // todo: enable method discrimination upstream (https://github.com/seamapi/edgespec/issues/136)
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const thing = ctx.db.addThing(req.jsonBody!)
     return ctx.json({ thing }).status(201)
   }
