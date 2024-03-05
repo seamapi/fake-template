@@ -81,7 +81,7 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "get-port": "^5.1.1",
     "immer": "^9.0.21",
-    "landlubber": "file:.yalc/landlubber",
+    "landlubber": "^2.0.0",
     "mkdirp": "^3.0.0",
     "prettier": "^3.0.3",
     "tsup": "^8.0.1",
