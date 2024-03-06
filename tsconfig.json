@@ -14,6 +14,7 @@
     "declaration": true,
     "sourceMap": true,
     "newLine": "lf",
+    "jsx": "react",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": false,
     "allowUnreachableCode": false,
