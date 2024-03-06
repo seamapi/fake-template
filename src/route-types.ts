@@ -7,6 +7,10 @@ export type Routes = {
             ok: boolean;
         };
     };
+    "": {
+        route: "";
+        method: "GET";
+    };
     "/things": {
         route: "/things";
         method: "GET" | "POST";
