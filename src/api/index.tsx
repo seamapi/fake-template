@@ -8,5 +8,5 @@ export default withRouteSpec({
   methods: ["GET"],
   middlewares: [],
 })(async (_req, _ctx) => {
-  return renderJsxToResponse(<h1>Hello world!</h1>)
+  return await renderJsxToResponse(<h1>Hello world!</h1>)
 })
