@@ -1,5 +1,5 @@
 import { defineConfig } from "edgespec"
 
 export default defineConfig({
-  routesDirectory: "src/api",
+  routesDirectory: "src/routes",
 })
