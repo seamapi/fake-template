@@ -1,5 +1,5 @@
 import type { ExecutionContext } from "ava"
-import defaultAxios from "axios"
+import axios from "axios"
 import type { Middleware } from "edgespec"
 import { getTestServer as getTestEdgeSpecServer } from "edgespec/testing/ava"
 import type { TypedAxios } from "typed-axios-instance"
@@ -31,15 +31,15 @@ export const getTestServer = async <TSeed extends boolean>(
 
   const serverURL = `http://localhost:${port}`
 
-  const axios = defaultAxios.create({
+  const client = axios.create({
     baseURL: serverURL,
   }) as TypedAxios<Routes>
 
-  axios.defaults.headers.common["authorization"] = `Bearer ${seed.api_key}`
+  client.defaults.headers.common["authorization"] = `Bearer ${seed.api_key}`
 
   return {
     serverURL,
-    axios,
+    client,
     db,
     seed,
   }
