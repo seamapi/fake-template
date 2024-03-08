@@ -43,6 +43,5 @@
     "test/**/*",
     "examples/**/*",
     "tsup.config.ts"
-  ],
-  "exclude": ["dist"]
+  ]
 }
