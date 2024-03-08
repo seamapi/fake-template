@@ -1,7 +1,7 @@
-import type React from "react"
+import type { ReactNode } from "react"
 import reactDom from "react-dom/server"
 
-export const renderJsxToResponse = async (element: React.ReactNode) => {
+export const renderJsxToResponse = async (element: ReactNode) => {
   const stream = await reactDom.renderToReadableStream(element)
   return new Response(stream, {
     status: 200,
