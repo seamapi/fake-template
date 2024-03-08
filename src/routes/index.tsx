@@ -1,5 +1,3 @@
-import React from "react"
-
 import { withRouteSpec } from "lib/middleware/index.ts"
 import { renderJsxToResponse } from "lib/render-jsx-to-response.ts"
 
