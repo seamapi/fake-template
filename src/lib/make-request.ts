@@ -1,11 +1,10 @@
-import { loadBundle } from "edgespec"
 import type { Middleware } from "edgespec/middleware"
 
+// @ts-expect-error (otherwise this will throw during `edgespec codegen`)
+import bundle from "../../dist/bundled-routes.js"
 import { createDatabase, type Database } from "./database/index.js"
 
 export const createMakeRequest = async (database?: Database) => {
-  const bundle = await loadBundle("./bundled-routes.js")
-
   const databaseInjectionMiddleware: Middleware<
     unknown,
     {

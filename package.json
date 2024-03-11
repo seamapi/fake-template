@@ -8,6 +8,7 @@
   "typings": "dist/index.d.ts",
   "exports": {
     "import": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "require": "./dist/index.cjs"
   },
   "sideEffects": false,
@@ -29,13 +30,11 @@
   ],
   "scripts": {
     "dev": "edgespec dev",
-    "build": "npm run build:ts && edgespec bundle -o dist/bundled-routes.js",
+    "build": "edgespec bundle -o dist/bundled-routes.js && npm run build:ts",
     "prebuild": "npm run build:codegen",
     "postbuild": "node ./dist/index.js",
     "build:codegen": "npm run build:route-types && npm run build:openapi",
     "build:ts": "tsup",
-    "prebuild:ts": "del dist",
-    "postbuild:ts": "tsup --format cjs src/index.ts",
     "build:route-types": "edgespec codegen route-types -o src/route-types.ts",
     "postbuild:route-types": "prettier --write src/route-types.ts",
     "build:openapi": "edgespec codegen openapi -o public/openapi.json",
