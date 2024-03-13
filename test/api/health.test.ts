@@ -1,10 +1,10 @@
-import test, { type ExecutionContext } from "ava"
+import test from "ava"
 
 import { getTestServer } from "fixtures/get-test-server.ts"
 
-test("GET /health", async (t: ExecutionContext) => {
-  const { axios } = await getTestServer(t)
-  const { data } = await axios.get("/health")
+test("GET /health", async (t) => {
+  const { client } = await getTestServer(t)
+  const { data } = await client.get("/health")
   t.true(data.ok)
   t.truthy(data.note)
 })

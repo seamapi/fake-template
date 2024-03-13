@@ -1,16 +1,20 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@tsconfig/next/tsconfig.json",
   "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "isolatedModules": true,
+    "skipLibCheck": true,
     "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "nodenext",
+    "module": "NodeNext",
     "allowJs": false,
     "target": "es2021",
     "declaration": true,
     "sourceMap": true,
     "newLine": "lf",
+    "jsx": "react-jsx",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": false,
     "allowUnreachableCode": false,
@@ -29,15 +33,13 @@
       "@seamapi/fake-template": ["./src/index.ts"],
       "fixtures/*": ["./test/fixtures/*"],
       "lib/*": ["./src/lib/*"],
-      "nsm/*": ["./.nsm/*"],
       "pages/*": ["./src/pages/*"]
     }
   },
   "files": ["src/index.ts"],
   "include": [
     "src/**/*",
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
+    "edgespec.config.ts",
     "test/**/*",
     "examples/**/*",
     "tsup.config.ts"

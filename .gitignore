@@ -17,8 +17,8 @@
 # ESLint
 src/route-types.ts
 
-# NextJS Server Modules
-.nsm
+# EdgeSpec
+.edgespec
 
 # Build directories
 package

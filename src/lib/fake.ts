@@ -6,7 +6,8 @@ import {
   seedDatabase,
   type ZustandDatabase,
 } from "lib/database/index.ts"
-import { type Server, startServer } from "lib/server.ts"
+
+import { createMakeRequest } from "./make-request.ts"
 
 export const createFake = async (): Promise<Fake> => {
   const database = createDatabase()
@@ -14,33 +15,29 @@ export const createFake = async (): Promise<Fake> => {
 }
 
 export class Fake {
-  public server: Server | null
-
-  public database: Database
+  public database: Omit<
+    Database,
+    "getState" | "setState" | "destroy" | "subscribe"
+  >
 
   readonly #database: ZustandDatabase
 
+  private readonly makeRequestWithDatabase: ReturnType<typeof createMakeRequest>
+
   constructor(database: ZustandDatabase) {
-    this.server = null
     this.#database = database
     this.database = database
-  }
-
-  async startServer({ port }: { port?: number } = {}): Promise<Server> {
-    this.server = await startServer({ port, database: this.#database })
-    return this.server
-  }
-
-  async stopServer(): Promise<void> {
-    this.server?.close()
-  }
-
-  get serverUrl(): string | null | undefined {
-    return this.server?.serverUrl
+    this.makeRequestWithDatabase = createMakeRequest(database)
   }
 
   async seed(): Promise<Seed> {
     return seedDatabase(this.#database)
+  }
+
+  async makeRequest(request: Request): Promise<Response> {
+    return await (
+      await this.makeRequestWithDatabase
+    )(request)
   }
 
   async loadJSON(state: DatabaseState): Promise<void> {
