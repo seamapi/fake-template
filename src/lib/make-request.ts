@@ -16,6 +16,7 @@ export const createMakeRequest = async (database?: Database) => {
   }
 
   return async (request: Request) =>
+    // eslint-disable-next-line @typescript-eslint/return-await
     await bundle.makeRequest(request, {
       middleware: [databaseInjectionMiddleware],
     })

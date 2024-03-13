@@ -41,7 +41,7 @@
     "postbuild:openapi": "prettier --write public/openapi.json",
     "typecheck": "tsc",
     "test": "c8 ava",
-    "pretest": "tsx src/index.ts",
+    "pretest": "npm run build && tsx src/index.ts",
     "test:update": "ava --update-snapshots",
     "test:watch": "ava --watch",
     "test:debug": "ava debug --break",
