@@ -1,11 +1,12 @@
-export default {
-  ignoredByWatcher: ["tmp/**/*", ".edgespec"],
-  files: ["**/*.test.ts", "!package/**/*"],
-  environmentVariables: {
-    NODE_ENV: "test",
-  },
-  extensions: {
-    ts: "commonjs",
-  },
-  nodeArguments: ["--import=tsx"],
+export default () => {
+  return {
+    files: ["**/*.test.ts", "!package/**/*"],
+    ignoreChanges: {
+      watchMode: ["tmp/**/*"],
+    },
+    extensions: {
+      ts: "commonjs",
+    },
+    nodeArguments: ["--import=tsx"],
+  }
 }
