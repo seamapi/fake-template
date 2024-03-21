@@ -19,13 +19,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
+                  "type": ["object"],
                   "properties": {
                     "note": {
-                      "type": "string"
+                      "type": ["string"]
                     },
                     "ok": {
-                      "type": "boolean"
+                      "type": ["boolean"]
                     }
                   },
                   "required": ["note", "ok"]
@@ -69,39 +69,39 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
+                  "type": ["object"],
                   "properties": {
                     "thing": {
-                      "type": "object",
+                      "type": ["object"],
                       "properties": {
                         "thingId": {
-                          "type": "string"
+                          "type": ["string"]
                         },
                         "type": {
-                          "type": "string",
+                          "type": ["string"],
                           "enum": ["superthing", "lamething"]
                         },
                         "status": {
-                          "type": "string",
+                          "type": ["string"],
                           "enum": ["online", "offline"]
                         }
                       },
                       "required": ["thingId", "type", "status"]
                     },
                     "things": {
-                      "type": "array",
+                      "type": ["array"],
                       "items": {
-                        "type": "object",
+                        "type": ["object"],
                         "properties": {
                           "thingId": {
-                            "type": "string"
+                            "type": ["string"]
                           },
                           "type": {
-                            "type": "string",
+                            "type": ["string"],
                             "enum": ["superthing", "lamething"]
                           },
                           "status": {
-                            "type": "string",
+                            "type": ["string"],
                             "enum": ["online", "offline"]
                           }
                         },
@@ -130,39 +130,39 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
+                  "type": ["object"],
                   "properties": {
                     "thing": {
-                      "type": "object",
+                      "type": ["object"],
                       "properties": {
                         "thingId": {
-                          "type": "string"
+                          "type": ["string"]
                         },
                         "type": {
-                          "type": "string",
+                          "type": ["string"],
                           "enum": ["superthing", "lamething"]
                         },
                         "status": {
-                          "type": "string",
+                          "type": ["string"],
                           "enum": ["online", "offline"]
                         }
                       },
                       "required": ["thingId", "type", "status"]
                     },
                     "things": {
-                      "type": "array",
+                      "type": ["array"],
                       "items": {
-                        "type": "object",
+                        "type": ["object"],
                         "properties": {
                           "thingId": {
-                            "type": "string"
+                            "type": ["string"]
                           },
                           "type": {
-                            "type": "string",
+                            "type": ["string"],
                             "enum": ["superthing", "lamething"]
                           },
                           "status": {
-                            "type": "string",
+                            "type": ["string"],
                             "enum": ["online", "offline"]
                           }
                         },
@@ -185,14 +185,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
+                "type": ["object"],
                 "properties": {
                   "type": {
-                    "type": "string",
+                    "type": ["string"],
                     "enum": ["superthing", "lamething"]
                   },
                   "status": {
-                    "type": "string",
+                    "type": ["string"],
                     "enum": ["online", "offline"]
                   }
                 },
