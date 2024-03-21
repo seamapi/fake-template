@@ -61,7 +61,7 @@
   "optionalDependencies": {
     "zod": "^3.21.4",
     "zustand": "^4.3.7",
-    "zustand-hoist": "^1.0.0"
+    "zustand-hoist": "^2.0.1"
   },
   "devDependencies": {
     "@ava/get-port": "^2.0.0",
@@ -93,6 +93,6 @@
     "typescript": "~5.3.3",
     "zod": "^3.21.4",
     "zustand": "^4.3.7",
-    "zustand-hoist": "^1.0.0"
+    "zustand-hoist": "^2.0.1"
   }
 }
